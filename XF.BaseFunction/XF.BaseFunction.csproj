@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{52BC1CB5-BCD8-4D55-B8E4-6C3CE6B87B59}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XF.BaseFunction</RootNamespace>
+    <AssemblyName>XF.BaseFunction</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Public\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo64.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmAuthorityList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAuthorityList.Designer.cs">
+      <DependentUpon>FrmAuthorityList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChangePassword.Designer.cs">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entry.cs" />
+    <Compile Include="FrmConfigList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfigList.Designer.cs">
+      <DependentUpon>FrmConfigList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModules.Designer.cs">
+      <DependentUpon>FrmModules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModulesCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModulesCard.Designer.cs">
+      <DependentUpon>FrmModulesCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRolesAuthorizedRel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRolesAuthorizedRel.Designer.cs">
+      <DependentUpon>FrmRolesAuthorizedRel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRolesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRolesList.Designer.cs">
+      <DependentUpon>FrmRolesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUserGrantRel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUserGrantRel.Designer.cs">
+      <DependentUpon>FrmUserGrantRel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsersList.Designer.cs">
+      <DependentUpon>FrmUsersList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGroupsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGroupsList.Designer.cs">
+      <DependentUpon>FrmGroupsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FrmUsersCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsersCard.Designer.cs">
+      <DependentUpon>FrmUsersCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmAuthorityList.resx">
+      <DependentUpon>FrmAuthorityList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChangePassword.resx">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfigList.resx">
+      <DependentUpon>FrmConfigList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGroupsList.resx">
+      <DependentUpon>FrmGroupsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModules.resx">
+      <DependentUpon>FrmModules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModulesCard.resx">
+      <DependentUpon>FrmModulesCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRolesAuthorizedRel.resx">
+      <DependentUpon>FrmRolesAuthorizedRel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRolesList.resx">
+      <DependentUpon>FrmRolesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserGrantRel.resx">
+      <DependentUpon>FrmUserGrantRel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsersCard.resx">
+      <DependentUpon>FrmUsersCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsersList.resx">
+      <DependentUpon>FrmUsersList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{B3E6083D-1A80-4838-B8A1-1D90FFE94191}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.BLL\XF.BLL.csproj">
+      <Project>{A883B149-D132-4A0E-BA23-1BCF8AAE61D8}</Project>
+      <Name>XF.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common\XF.Common.csproj">
+      <Project>{80F2CC40-0C44-49CB-8484-5BF047E66C2A}</Project>
+      <Name>XF.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.ExControls\XF.ExControls.csproj">
+      <Project>{32CFAF30-C43A-4FDA-BDE1-77BFF78F3881}</Project>
+      <Name>XF.ExControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Lib\XF.Lib.csproj">
+      <Project>{E4471A1F-E6D5-4C2D-8F94-F4C14B7643B6}</Project>
+      <Name>XF.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Model\XF.Model.csproj">
+      <Project>{E274FF69-C3F4-4C2A-9CF5-C2938C3D4B41}</Project>
+      <Name>XF.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo64.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

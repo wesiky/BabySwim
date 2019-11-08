@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9DB14AD9-DD26-48A5-978A-4CB8D8DEFD31}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BabySwim</RootNamespace>
+    <AssemblyName>BabySwim</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Public\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo64.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XF.Common">
+      <HintPath>..\Public\XF.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entry.cs" />
+    <Compile Include="FrmCourseChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCourseChoice.Designer.cs">
+      <DependentUpon>FrmCourseChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCourseEvaluate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCourseEvaluate.Designer.cs">
+      <DependentUpon>FrmCourseEvaluate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSelectionStudentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSelectionStudentList.Designer.cs">
+      <DependentUpon>FrmSelectionStudentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCourseList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCourseList.Designer.cs">
+      <DependentUpon>FrmCourseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCourseScheduler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCourseScheduler.Designer.cs">
+      <DependentUpon>FrmCourseScheduler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCourseSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCourseSelection.Designer.cs">
+      <DependentUpon>FrmCourseSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCourseSelectionInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCourseSelectionInfo.Designer.cs">
+      <DependentUpon>FrmCourseSelectionInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCourseSign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCourseSign.Designer.cs">
+      <DependentUpon>FrmCourseSign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCustomerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCustomerList.Designer.cs">
+      <DependentUpon>FrmCustomerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDialogStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDialogStudent.designer.cs">
+      <DependentUpon>FrmDialogStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFamilyList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFamilyList.Designer.cs">
+      <DependentUpon>FrmFamilyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImportCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImportCustomer.designer.cs">
+      <DependentUpon>FrmImportCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNotice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNotice.Designer.cs">
+      <DependentUpon>FrmNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTeacherCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTeacherCard.Designer.cs">
+      <DependentUpon>FrmTeacherCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTeacherList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTeacherList.Designer.cs">
+      <DependentUpon>FrmTeacherList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GDATA.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FrmCustomerCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCustomerCard.Designer.cs">
+      <DependentUpon>FrmCustomerCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCourseEvaluateSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCourseEvaluateSelection.Designer.cs">
+      <DependentUpon>FrmCourseEvaluateSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDialogTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDialogTeacher.designer.cs">
+      <DependentUpon>FrmDialogTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSelectionStudentCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSelectionStudentCard.Designer.cs">
+      <DependentUpon>FrmSelectionStudentCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTeachingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTeachingReport.Designer.cs">
+      <DependentUpon>FrmTeachingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTeachingDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTeachingDetail.Designer.cs">
+      <DependentUpon>FrmTeachingDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfirmedStudentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfirmedStudentList.Designer.cs">
+      <DependentUpon>FrmConfirmedStudentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDialogAdviser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDialogAdviser.designer.cs">
+      <DependentUpon>FrmDialogAdviser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTryOutCourseSelectionInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTryOutCourseSelectionInfo.Designer.cs">
+      <DependentUpon>FrmTryOutCourseSelectionInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDialogCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDialogCustomer.designer.cs">
+      <DependentUpon>FrmDialogCustomer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmCourseChoice.resx">
+      <DependentUpon>FrmCourseChoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCourseEvaluate.resx">
+      <DependentUpon>FrmCourseEvaluate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelectionStudentList.resx">
+      <DependentUpon>FrmSelectionStudentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCourseList.resx">
+      <DependentUpon>FrmCourseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCourseScheduler.resx">
+      <DependentUpon>FrmCourseScheduler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCourseSelection.resx">
+      <DependentUpon>FrmCourseSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCourseSelectionInfo.resx">
+      <DependentUpon>FrmCourseSelectionInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCourseSign.resx">
+      <DependentUpon>FrmCourseSign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCustomerList.resx">
+      <DependentUpon>FrmCustomerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDialogStudent.resx">
+      <DependentUpon>FrmDialogStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFamilyList.resx">
+      <DependentUpon>FrmFamilyList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImportCustomer.resx">
+      <DependentUpon>FrmImportCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNotice.resx">
+      <DependentUpon>FrmNotice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTeacherCard.resx">
+      <DependentUpon>FrmTeacherCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTeacherList.resx">
+      <DependentUpon>FrmTeacherList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="FrmCustomerCard.resx">
+      <DependentUpon>FrmCustomerCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCourseEvaluateSelection.resx">
+      <DependentUpon>FrmCourseEvaluateSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDialogTeacher.resx">
+      <DependentUpon>FrmDialogTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelectionStudentCard.resx">
+      <DependentUpon>FrmSelectionStudentCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTeachingReport.resx">
+      <DependentUpon>FrmTeachingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTeachingDetail.resx">
+      <DependentUpon>FrmTeachingDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfirmedStudentList.resx">
+      <DependentUpon>FrmConfirmedStudentList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDialogAdviser.resx">
+      <DependentUpon>FrmDialogAdviser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTryOutCourseSelectionInfo.resx">
+      <DependentUpon>FrmTryOutCourseSelectionInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDialogCustomer.resx">
+      <DependentUpon>FrmDialogCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{B3E6083D-1A80-4838-B8A1-1D90FFE94191}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.BLL\XF.BLL.csproj">
+      <Project>{A883B149-D132-4A0E-BA23-1BCF8AAE61D8}</Project>
+      <Name>XF.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.ExControls\XF.ExControls.csproj">
+      <Project>{32CFAF30-C43A-4FDA-BDE1-77BFF78F3881}</Project>
+      <Name>XF.ExControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Model\XF.Model.csproj">
+      <Project>{E274FF69-C3F4-4C2A-9CF5-C2938C3D4B41}</Project>
+      <Name>XF.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo64.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

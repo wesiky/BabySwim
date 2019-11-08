@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A883B149-D132-4A0E-BA23-1BCF8AAE61D8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XF.BLL</RootNamespace>
+    <AssemblyName>XF.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Public\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assist_Notice.cs" />
+    <Compile Include="Base_Course.cs" />
+    <Compile Include="Base_Customer.cs" />
+    <Compile Include="Base_Family.cs" />
+    <Compile Include="Base_Student.cs" />
+    <Compile Include="Base_Teacher.cs" />
+    <Compile Include="Course_ConfirmedStudent.cs" />
+    <Compile Include="Course_Scheduler.cs" />
+    <Compile Include="Course_Selection.cs" />
+    <Compile Include="Course_SelectionStudent.cs" />
+    <Compile Include="XF\LoginHandler.cs" />
+    <Compile Include="XF\LoginInfo.cs" />
+    <Compile Include="XF\LoginOptioner.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XF\SysManage.cs" />
+    <Compile Include="XF\XF_AuthorityDir.cs" />
+    <Compile Include="XF\XF_Configuration.cs" />
+    <Compile Include="XF\XF_Groups.cs" />
+    <Compile Include="XF\XF_Modules.cs" />
+    <Compile Include="XF\XF_Roles.cs" />
+    <Compile Include="XF\XF_UserGroup.cs" />
+    <Compile Include="XF\XF_Users.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Enums\Enums.csproj">
+      <Project>{B3E6083D-1A80-4838-B8A1-1D90FFE94191}</Project>
+      <Name>Enums</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Common\XF.Common.csproj">
+      <Project>{80F2CC40-0C44-49CB-8484-5BF047E66C2A}</Project>
+      <Name>XF.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.DALFactory\XF.DALFactory.csproj">
+      <Project>{54D25412-D0E0-4089-91E2-B6061B0EB9C6}</Project>
+      <Name>XF.DALFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.DBUtility\XF.DBUtility.csproj">
+      <Project>{DA0106FE-A1EE-4C5E-8AC6-81A0472429CD}</Project>
+      <Name>XF.DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.IDAL\XF.IDAL.csproj">
+      <Project>{102E3C0A-B7DE-4ED8-9541-A7F6B558C854}</Project>
+      <Name>XF.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Lib\XF.Lib.csproj">
+      <Project>{E4471A1F-E6D5-4C2D-8F94-F4C14B7643B6}</Project>
+      <Name>XF.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.Model\XF.Model.csproj">
+      <Project>{E274FF69-C3F4-4C2A-9CF5-C2938C3D4B41}</Project>
+      <Name>XF.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XF.SQLserverDAL\XF.SQLServerDAL.csproj">
+      <Project>{A9A4351C-ADB2-4D79-A35B-11971CE94531}</Project>
+      <Name>XF.SQLServerDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

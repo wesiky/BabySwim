@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{32CFAF30-C43A-4FDA-BDE1-77BFF78F3881}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XF.ExControls</RootNamespace>
+    <AssemblyName>XF.ExControls</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Public\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HttpServer">
+      <HintPath>..\Dll\HttpServer.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ControlExs\Board\ChartOEE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlExs\Board\ChartOEE.designer.cs">
+      <DependentUpon>ChartOEE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlExs\Board\ChartFirstTimeThroughRate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlExs\Board\ChartFirstTimeThroughRate.designer.cs">
+      <DependentUpon>ChartFirstTimeThroughRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlExs\Board\ChartDayPlanCompletion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlExs\Board\ChartDayPlanCompletion.designer.cs">
+      <DependentUpon>ChartDayPlanCompletion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlExs\Board\ChartProcessYield.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlExs\Board\ChartProcessYield.designer.cs">
+      <DependentUpon>ChartProcessYield.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common Class\ColorTable.cs" />
+    <Compile Include="ControlExs\DataGridViewSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlExs\DataGridViewSummary.designer.cs">
+      <DependentUpon>DataGridViewSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlExs\FormEx\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlExs\FormEx\FormEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlExs\FormEx\SystemButton.cs" />
+    <Compile Include="ControlExs\FormEx\SystemButtonManager.cs" />
+    <Compile Include="ControlExs\FormEx\XFFormEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlExs\ImageButton\ImageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlExs\NoticeRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlExs\NoticeRecord.Designer.cs">
+      <DependentUpon>NoticeRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlExs\QQControls\QQButton\QQButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlExs\QQControls\QQCheckBox\QQCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlExs\QQControls\QQGlassButton\QQGlassButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlExs\QQControls\QQMessageBox\QQMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlExs\QQControls\QQMessageBox\QQMessageBoxButtons.cs" />
+    <Compile Include="ControlExs\QQControls\QQMessageBox\QQMessageBoxIcon.cs" />
+    <Compile Include="ControlExs\QQControls\QQRadioButton\QQRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlExs\QQControls\QQTextBox\QQTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlExs\DataGridViewEx\XFCourseScheduler.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlExs\DataGridViewEx\XFCourseScheduler.Designer.cs">
+      <DependentUpon>XFCourseScheduler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlExs\DataGridViewEx\XFClassScheduler.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlExs\DataGridViewEx\XFClassScheduler.Designer.cs">
+      <DependentUpon>XFClassScheduler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlExs\ReadOnlyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlExs\ReadOnlyTextBox.designer.cs">
+      <DependentUpon>ReadOnlyTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlExs\RichText\RichTextControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlExs\RichText\RichTextControl.designer.cs">
+      <DependentUpon>RichTextControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlExs\RichText\Model\BaseRichFormat.cs" />
+    <Compile Include="ControlExs\RichText\Model\Enum.cs" />
+    <Compile Include="ControlExs\RichText\Model\IRichFormat.cs" />
+    <Compile Include="ControlExs\RichText\Model\RichFormatFactory.cs" />
+    <Compile Include="ControlExs\RichText\Model\SubRichFormat.cs" />
+    <Compile Include="ControlExs\SummaryControlContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlExs\TextHelper.cs" />
+    <Compile Include="Demo\FormDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Demo\FormDemo.designer.cs">
+      <DependentUpon>FormDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Demo\FrmXFDataGridView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Demo\FrmXFDataGridView.Designer.cs">
+      <DependentUpon>FrmXFDataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\ClassStyle.cs" />
+    <Compile Include="Enums\MouseOperate.cs" />
+    <Compile Include="Enums\QQControlState.cs" />
+    <Compile Include="Enums\SystemButtonState.cs" />
+    <Compile Include="Enums\WindowStyle.cs" />
+    <Compile Include="Enums\WindowStyleEx.cs" />
+    <Compile Include="Methods\Effect.cs" />
+    <Compile Include="Methods\RenderHelper.cs" />
+    <Compile Include="Methods\Win32.cs" />
+    <Compile Include="ControlExs\NoticeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlExs\NoticeControl.Designer.cs">
+      <DependentUpon>NoticeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlExs\PagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlExs\PagerControl.designer.cs">
+      <DependentUpon>PagerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlExs\PanelEnhanced.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlExs\DataGridViewEx\XFDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlExs\DataGridViewEx\XFDataGridView.Designer.cs">
+      <DependentUpon>XFDataGridView.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ControlExs\Board\ChartOEE.resx">
+      <DependentUpon>ChartOEE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlExs\Board\ChartFirstTimeThroughRate.resx">
+      <DependentUpon>ChartFirstTimeThroughRate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlExs\Board\ChartDayPlanCompletion.resx">
+      <DependentUpon>ChartDayPlanCompletion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlExs\Board\ChartProcessYield.resx">
+      <DependentUpon>ChartProcessYield.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlExs\FormEx\FormEx.resx">
+      <DependentUpon>FormEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlExs\FormEx\XFFormEx.resx">
+      <DependentUpon>XFFormEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlExs\NoticeRecord.resx">
+      <DependentUpon>NoticeRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlExs\QQControls\QQMessageBox\QQMessageBox.resx">
+      <DependentUpon>QQMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlExs\DataGridViewEx\XFCourseScheduler.resx">
+      <DependentUpon>XFCourseScheduler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlExs\DataGridViewEx\XFClassScheduler.resx">
+      <DependentUpon>XFClassScheduler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlExs\RichText\RichTextControl.resx">
+      <DependentUpon>RichTextControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\FormDemo.resx">
+      <DependentUpon>FormDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\FrmXFDataGridView.resx">
+      <DependentUpon>FrmXFDataGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlExs\NoticeControl.resx">
+      <DependentUpon>NoticeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlExs\PagerControl.resx">
+      <DependentUpon>PagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlExs\DataGridViewEx\XFDataGridView.resx">
+      <DependentUpon>XFDataGridView.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XF.Common\XF.Common.csproj">
+      <Project>{80F2CC40-0C44-49CB-8484-5BF047E66C2A}</Project>
+      <Name>XF.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ControlExs\FormEx\Res\fringe_bkg.png" />
+    <EmbeddedResource Include="ControlExs\FormEx\Res\SystemButtons\close_down.png" />
+    <EmbeddedResource Include="ControlExs\FormEx\Res\SystemButtons\close_highlight.png" />
+    <EmbeddedResource Include="ControlExs\FormEx\Res\SystemButtons\close_normal.png" />
+    <EmbeddedResource Include="ControlExs\FormEx\Res\SystemButtons\max_down.png" />
+    <EmbeddedResource Include="ControlExs\FormEx\Res\SystemButtons\max_highlight.png" />
+    <EmbeddedResource Include="ControlExs\FormEx\Res\SystemButtons\max_normal.png" />
+    <EmbeddedResource Include="ControlExs\FormEx\Res\SystemButtons\min_down.png" />
+    <EmbeddedResource Include="ControlExs\FormEx\Res\SystemButtons\min_highlight.png" />
+    <EmbeddedResource Include="ControlExs\FormEx\Res\SystemButtons\min_normal.png" />
+    <EmbeddedResource Include="ControlExs\FormEx\Res\SystemButtons\restore_down.png" />
+    <EmbeddedResource Include="ControlExs\FormEx\Res\SystemButtons\restore_highlight.png" />
+    <EmbeddedResource Include="ControlExs\FormEx\Res\SystemButtons\restore_normal.png" />
+    <EmbeddedResource Include="ControlExs\QQControls\QQButton\Image\qqbtn_down.png" />
+    <EmbeddedResource Include="ControlExs\QQControls\QQButton\Image\qqbtn_focus.png" />
+    <EmbeddedResource Include="ControlExs\QQControls\QQButton\Image\qqbtn_highlight.png" />
+    <EmbeddedResource Include="ControlExs\QQControls\QQButton\Image\qqbtn_normal.png" />
+    <EmbeddedResource Include="ControlExs\QQControls\QQCheckBox\Image\check.png" />
+    <EmbeddedResource Include="ControlExs\QQControls\QQGlassButton\Image\glassbtn_down.png" />
+    <EmbeddedResource Include="ControlExs\QQControls\QQGlassButton\Image\glassbtn_hot.png" />
+    <EmbeddedResource Include="ControlExs\QQControls\QQMessageBox\Icons\qqmessagebox_error.png" />
+    <EmbeddedResource Include="ControlExs\QQControls\QQMessageBox\Icons\qqmessagebox_infor.png" />
+    <EmbeddedResource Include="ControlExs\QQControls\QQMessageBox\Icons\qqmessagebox_ok.png" />
+    <EmbeddedResource Include="ControlExs\QQControls\QQMessageBox\Icons\qqmessagebox_question.png" />
+    <EmbeddedResource Include="ControlExs\QQControls\QQMessageBox\Icons\qqmessagebox_warning.png" />
+    <EmbeddedResource Include="ControlExs\QQControls\QQRadioButton\Image\dot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ControlExs\RichText\icons\align_center.gif" />
+    <Content Include="ControlExs\RichText\icons\align_left.gif" />
+    <Content Include="ControlExs\RichText\icons\align_right.gif" />
+    <Content Include="ControlExs\RichText\icons\background.gif" />
+    <Content Include="ControlExs\RichText\icons\bold.gif" />
+    <Content Include="ControlExs\RichText\icons\del.gif" />
+    <Content Include="ControlExs\RichText\icons\font.gif" />
+    <Content Include="ControlExs\RichText\icons\foreground.gif" />
+    <Content Include="ControlExs\RichText\icons\help_print.gif" />
+    <Content Include="ControlExs\RichText\icons\help_search.gif" />
+    <Content Include="ControlExs\RichText\icons\indent.gif" />
+    <Content Include="ControlExs\RichText\icons\italic.gif" />
+    <Content Include="ControlExs\RichText\icons\outdent.gif" />
+    <Content Include="ControlExs\RichText\icons\picture.png" />
+    <Content Include="ControlExs\RichText\icons\strikeout.gif" />
+    <Content Include="ControlExs\RichText\icons\subscript.gif" />
+    <Content Include="ControlExs\RichText\icons\superscript.gif" />
+    <Content Include="ControlExs\RichText\icons\ul.gif" />
+    <Content Include="ControlExs\RichText\icons\underline.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
