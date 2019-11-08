@@ -226,7 +226,22 @@ namespace XF.BLL
         {
             return dal.GetUpdateStudentSql(studentID, courseID, progress);
         }
-		#endregion  ExtensionMethod
-	}
+
+        /// <summary>
+        /// 获取分页数据
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <param name="strOrder"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public List<Model.Base_Student> GetModelListByPage(string strWhere, string strOrder, int pageIndex, int pageSize, ref int count)
+        {
+            DataTable dt = dal.GetListByPage(strWhere, strOrder, pageIndex, pageSize, ref count);
+            return DataTableToList(dt);
+        }
+        #endregion  ExtensionMethod
+    }
 }
 

@@ -355,8 +355,15 @@ namespace XF.SQLServerDAL
                         model.SelectionCount = int.Parse(row["SelectionCount"].ToString());
                     }
                 }
+                if (row.Table.Columns.Contains("StudentNames"))
+                {
+                    if (row["StudentNames"] != null)
+                    {
+                        model.StudentNames = row["StudentNames"].ToString();
+                    }
+                }
                 #endregion
-			}
+            }
 			return model;
 		}
 

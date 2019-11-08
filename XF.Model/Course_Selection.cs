@@ -34,6 +34,7 @@ namespace XF.Model
         private string _coursename;
         private string _color;
         private int _selectioncount;
+        private string _studentnames;
         private List<XF.Model.Course_SelectionStudent> _selectionstudents;
 
         public string TeacherCode
@@ -75,6 +76,12 @@ namespace XF.Model
         {
             get { return _selectioncount; }
             set { _selectioncount = value; }
+        }
+
+        public string StudentNames
+        {
+            get { return _studentnames; }
+            set { _studentnames = value; }
         }
 
         public List<XF.Model.Course_SelectionStudent> SelectionStudents

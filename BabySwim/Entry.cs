@@ -19,6 +19,12 @@ namespace BabySwim
             return frm;
         }
 
+        public Form StudentList()
+        {
+            FrmStudentList frm = new FrmStudentList();
+            return frm;
+        }
+
         public Form TeacherList()
         {
             FrmTeacherList frm = new FrmTeacherList();

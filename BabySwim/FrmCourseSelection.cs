@@ -237,7 +237,7 @@ namespace BabySwim
             {
                 XF.Model.Course_Selection model = bll.DataRowToModel(dr);
                 xfClassScheduler.Rows[model.LessonNO].Cells[model.ClassRoomID].Style.BackColor = ColorTranslator.FromHtml(model.Color);
-                xfClassScheduler.Rows[model.LessonNO].Cells[model.ClassRoomID].Value = string.Format("{0}第{1}节{2}选课人数：{3}{2}授课老师：{4}", model.CourseName, model.SectionNO, MessageText.KEY_ENTER, zDataConverter.ToString(model.SelectionCount), model.TeacherName);
+                xfClassScheduler.Rows[model.LessonNO].Cells[model.ClassRoomID].Value = string.Format("{0}第{1}节{2}选课人数：{3}{2}授课老师：{4}{2}学员：{5}", model.CourseName, model.SectionNO, MessageText.KEY_ENTER, zDataConverter.ToString(model.SelectionCount), model.TeacherName,model.StudentNames);
                 xfClassScheduler.Rows[model.LessonNO].Cells[model.ClassRoomID].Tag = model.SelectionID;
             }
             //设置已排课数据,目前不区分教室排课

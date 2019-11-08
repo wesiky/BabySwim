@@ -50,11 +50,6 @@
             this.tsTbFamily = new System.Windows.Forms.ToolStripTextBox();
             this.tsBtnSearch = new System.Windows.Forms.ToolStripButton();
             this.xfDataGridView2 = new XF.ExControls.XFDataGridView();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.tsBtnStudentAdd = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnStudentSave = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnStudentDelete = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnRefresh = new System.Windows.Forms.ToolStripButton();
             this.ColStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStudentCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +61,11 @@
             this.ColCourse = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ColProgress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStudentDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.tsBtnStudentAdd = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnStudentSave = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnStudentDelete = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnRefresh = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -80,7 +80,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -121,9 +121,9 @@
             this.xfDataGridView1.AllowUserToAddRows = false;
             this.xfDataGridView1.AllowUserToDeleteRows = false;
             this.xfDataGridView1.AllowUserToOrderColumns = true;
-            this.xfDataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.xfDataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.xfDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.xfDataGridView1.ColumnOrderName = null;
             this.xfDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -135,7 +135,7 @@
             this.ColDescription});
             this.xfDataGridView1.ContextMenuScriptEnable = true;
             this.xfDataGridView1.Location = new System.Drawing.Point(0, 24);
-            this.xfDataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.xfDataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.xfDataGridView1.Name = "xfDataGridView1";
             this.xfDataGridView1.RowTemplate.Height = 27;
             this.xfDataGridView1.Size = new System.Drawing.Size(690, 163);
@@ -234,6 +234,7 @@
             // 
             // tsTbFamily
             // 
+            this.tsTbFamily.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.tsTbFamily.Name = "tsTbFamily";
             this.tsTbFamily.Size = new System.Drawing.Size(91, 25);
             // 
@@ -268,7 +269,7 @@
             this.xfDataGridView2.ContextMenuScriptEnable = true;
             this.xfDataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xfDataGridView2.Location = new System.Drawing.Point(0, 25);
-            this.xfDataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.xfDataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.xfDataGridView2.Name = "xfDataGridView2";
             this.xfDataGridView2.RowTemplate.Height = 27;
             this.xfDataGridView2.Size = new System.Drawing.Size(690, 196);
@@ -278,55 +279,6 @@
             this.xfDataGridView2.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.xfDataGridView2_ColumnWidthChanged);
             this.xfDataGridView2.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.xfDataGridView2_DataError);
             this.xfDataGridView2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.xfDataGridView2_Scroll);
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsBtnStudentAdd,
-            this.tsBtnStudentSave,
-            this.tsBtnStudentDelete,
-            this.tsBtnRefresh});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(690, 25);
-            this.toolStrip2.TabIndex = 0;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // tsBtnStudentAdd
-            // 
-            this.tsBtnStudentAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnStudentAdd.Image")));
-            this.tsBtnStudentAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnStudentAdd.Name = "tsBtnStudentAdd";
-            this.tsBtnStudentAdd.Size = new System.Drawing.Size(52, 22);
-            this.tsBtnStudentAdd.Text = "新增";
-            this.tsBtnStudentAdd.Click += new System.EventHandler(this.tsBtnStudentAdd_Click);
-            // 
-            // tsBtnStudentSave
-            // 
-            this.tsBtnStudentSave.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnStudentSave.Image")));
-            this.tsBtnStudentSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnStudentSave.Name = "tsBtnStudentSave";
-            this.tsBtnStudentSave.Size = new System.Drawing.Size(52, 22);
-            this.tsBtnStudentSave.Text = "保存";
-            this.tsBtnStudentSave.Click += new System.EventHandler(this.tsBtnStudentSave_Click);
-            // 
-            // tsBtnStudentDelete
-            // 
-            this.tsBtnStudentDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnStudentDelete.Image")));
-            this.tsBtnStudentDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnStudentDelete.Name = "tsBtnStudentDelete";
-            this.tsBtnStudentDelete.Size = new System.Drawing.Size(52, 22);
-            this.tsBtnStudentDelete.Text = "删除";
-            this.tsBtnStudentDelete.Click += new System.EventHandler(this.tsBtnStudentDelete_Click);
-            // 
-            // tsBtnRefresh
-            // 
-            this.tsBtnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnRefresh.Image")));
-            this.tsBtnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnRefresh.Name = "tsBtnRefresh";
-            this.tsBtnRefresh.Size = new System.Drawing.Size(52, 22);
-            this.tsBtnRefresh.Text = "刷新";
-            this.tsBtnRefresh.Click += new System.EventHandler(this.tsBtnRefresh_Click);
             // 
             // ColStudentID
             // 
@@ -400,6 +352,55 @@
             this.ColStudentDescription.MinimumWidth = 100;
             this.ColStudentDescription.Name = "ColStudentDescription";
             // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsBtnStudentAdd,
+            this.tsBtnStudentSave,
+            this.tsBtnStudentDelete,
+            this.tsBtnRefresh});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(690, 25);
+            this.toolStrip2.TabIndex = 0;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // tsBtnStudentAdd
+            // 
+            this.tsBtnStudentAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnStudentAdd.Image")));
+            this.tsBtnStudentAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnStudentAdd.Name = "tsBtnStudentAdd";
+            this.tsBtnStudentAdd.Size = new System.Drawing.Size(52, 22);
+            this.tsBtnStudentAdd.Text = "新增";
+            this.tsBtnStudentAdd.Click += new System.EventHandler(this.tsBtnStudentAdd_Click);
+            // 
+            // tsBtnStudentSave
+            // 
+            this.tsBtnStudentSave.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnStudentSave.Image")));
+            this.tsBtnStudentSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnStudentSave.Name = "tsBtnStudentSave";
+            this.tsBtnStudentSave.Size = new System.Drawing.Size(52, 22);
+            this.tsBtnStudentSave.Text = "保存";
+            this.tsBtnStudentSave.Click += new System.EventHandler(this.tsBtnStudentSave_Click);
+            // 
+            // tsBtnStudentDelete
+            // 
+            this.tsBtnStudentDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnStudentDelete.Image")));
+            this.tsBtnStudentDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnStudentDelete.Name = "tsBtnStudentDelete";
+            this.tsBtnStudentDelete.Size = new System.Drawing.Size(52, 22);
+            this.tsBtnStudentDelete.Text = "删除";
+            this.tsBtnStudentDelete.Click += new System.EventHandler(this.tsBtnStudentDelete_Click);
+            // 
+            // tsBtnRefresh
+            // 
+            this.tsBtnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnRefresh.Image")));
+            this.tsBtnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnRefresh.Name = "tsBtnRefresh";
+            this.tsBtnRefresh.Size = new System.Drawing.Size(52, 22);
+            this.tsBtnRefresh.Text = "刷新";
+            this.tsBtnRefresh.Click += new System.EventHandler(this.tsBtnRefresh_Click);
+            // 
             // FrmFamilyList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -407,7 +408,7 @@
             this.ClientSize = new System.Drawing.Size(690, 449);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmFamilyList";
             this.Text = "学员家长信息管理";
             this.Load += new System.EventHandler(this.FrmFamilyList_Load);
