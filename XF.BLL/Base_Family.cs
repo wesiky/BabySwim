@@ -182,16 +182,29 @@ namespace XF.BLL
             return GetList(" Enable = 1 ");
         }
 
-        /// <summary>
-        /// 获取分页数据
-        /// </summary>
-        /// <param name="strWhere"></param>
-        /// <param name="strOrder"></param>
-        /// <param name="pageIndex"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="count"></param>
-        /// <returns></returns>
-        public DataTable GetListByPage(string strWhere, string strOrder, int pageIndex, int pageSize, ref int count)
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public XF.Model.Base_Family GetModel(string FamilyCode, string FamilyName)
+		{
+			return dal.GetModel(FamilyCode, FamilyName);
+		}
+
+		public bool UpdateOpenId(string familyId, string openId)
+		{
+			return dal.UpdateOpenId(familyId, openId);
+		}
+
+		/// <summary>
+		/// 获取分页数据
+		/// </summary>
+		/// <param name="strWhere"></param>
+		/// <param name="strOrder"></param>
+		/// <param name="pageIndex"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="count"></param>
+		/// <returns></returns>
+		public DataTable GetListByPage(string strWhere, string strOrder, int pageIndex, int pageSize, ref int count)
         {
             if (!strWhere.Equals(string.Empty))
             {

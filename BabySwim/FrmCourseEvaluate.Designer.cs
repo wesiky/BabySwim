@@ -41,15 +41,25 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rtcEvaluate = new XF.ExControls.RichTextControl();
             this.xfDataGridView1 = new XF.ExControls.XFDataGridView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsBtnSure = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnCancel = new System.Windows.Forms.ToolStripButton();
             this.ColSelectionStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStudentCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColSignType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ColEvaluate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsBtnSure = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnCancel = new System.Windows.Forms.ToolStripButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
+            this.domainUpDown2 = new System.Windows.Forms.DomainUpDown();
+            this.domainUpDown3 = new System.Windows.Forms.DomainUpDown();
+            this.domainUpDown4 = new System.Windows.Forms.DomainUpDown();
+            this.domainUpDown5 = new System.Windows.Forms.DomainUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -89,6 +99,16 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.domainUpDown5);
+            this.splitContainer1.Panel2.Controls.Add(this.domainUpDown4);
+            this.splitContainer1.Panel2.Controls.Add(this.domainUpDown3);
+            this.splitContainer1.Panel2.Controls.Add(this.domainUpDown2);
+            this.splitContainer1.Panel2.Controls.Add(this.domainUpDown1);
+            this.splitContainer1.Panel2.Controls.Add(this.label9);
+            this.splitContainer1.Panel2.Controls.Add(this.label8);
+            this.splitContainer1.Panel2.Controls.Add(this.label7);
+            this.splitContainer1.Panel2.Controls.Add(this.label6);
+            this.splitContainer1.Panel2.Controls.Add(this.label5);
             this.splitContainer1.Panel2.Controls.Add(this.rtcEvaluate);
             this.splitContainer1.Panel2.Controls.Add(this.xfDataGridView1);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
@@ -175,12 +195,16 @@
             // 
             // rtcEvaluate
             // 
-            this.rtcEvaluate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtcEvaluate.Location = new System.Drawing.Point(280, 22);
+            this.rtcEvaluate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtcEvaluate.ContentRtf = "{\\rtf1\\ansi\\ansicpg936\\deff0\\nouicompat\\deflang1033\\deflangfe2052{\\fonttbl{\\f0\\fn" +
+    "il\\fcharset134 \\\'cb\\\'ce\\\'cc\\\'e5;}}\r\n{\\*\\generator Riched20 10.0.17134}\\viewkind4" +
+    "\\uc1 \r\n\\pard\\f0\\fs18\\lang2052\\par\r\n}\r\n";
+            this.rtcEvaluate.ContentText = "";
+            this.rtcEvaluate.Location = new System.Drawing.Point(280, 55);
             this.rtcEvaluate.Name = "rtcEvaluate";
-            this.rtcEvaluate.Size = new System.Drawing.Size(535, 397);
+            this.rtcEvaluate.Size = new System.Drawing.Size(535, 365);
             this.rtcEvaluate.TabIndex = 4;
             // 
             // xfDataGridView1
@@ -188,8 +212,8 @@
             this.xfDataGridView1.AllowUserToAddRows = false;
             this.xfDataGridView1.AllowUserToDeleteRows = false;
             this.xfDataGridView1.AllowUserToOrderColumns = true;
-            this.xfDataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.xfDataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.xfDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.xfDataGridView1.ColumnOrderName = null;
             this.xfDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -205,38 +229,9 @@
             this.xfDataGridView1.Name = "xfDataGridView1";
             this.xfDataGridView1.ReadOnly = true;
             this.xfDataGridView1.RowTemplate.Height = 27;
-            this.xfDataGridView1.Size = new System.Drawing.Size(275, 397);
+            this.xfDataGridView1.Size = new System.Drawing.Size(275, 398);
             this.xfDataGridView1.TabIndex = 1;
             this.xfDataGridView1.CurrentCellChanged += new System.EventHandler(this.xfDataGridView1_CurrentCellChanged);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsBtnSure,
-            this.tsBtnCancel});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(815, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tsBtnSure
-            // 
-            this.tsBtnSure.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSure.Image")));
-            this.tsBtnSure.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnSure.Name = "tsBtnSure";
-            this.tsBtnSure.Size = new System.Drawing.Size(52, 22);
-            this.tsBtnSure.Text = "保存";
-            this.tsBtnSure.Click += new System.EventHandler(this.tsBtnSure_Click);
-            // 
-            // tsBtnCancel
-            // 
-            this.tsBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnCancel.Image")));
-            this.tsBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnCancel.Name = "tsBtnCancel";
-            this.tsBtnCancel.Size = new System.Drawing.Size(52, 22);
-            this.tsBtnCancel.Text = "取消";
-            this.tsBtnCancel.Click += new System.EventHandler(this.tsBtnCancel_Click);
             // 
             // ColSelectionStudentID
             // 
@@ -281,6 +276,120 @@
             this.ColEvaluate.Name = "ColEvaluate";
             this.ColEvaluate.ReadOnly = true;
             this.ColEvaluate.Visible = false;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsBtnSure,
+            this.tsBtnCancel});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(815, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsBtnSure
+            // 
+            this.tsBtnSure.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSure.Image")));
+            this.tsBtnSure.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnSure.Name = "tsBtnSure";
+            this.tsBtnSure.Size = new System.Drawing.Size(52, 22);
+            this.tsBtnSure.Text = "保存";
+            this.tsBtnSure.Click += new System.EventHandler(this.tsBtnSure_Click);
+            // 
+            // tsBtnCancel
+            // 
+            this.tsBtnCancel.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnCancel.Image")));
+            this.tsBtnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnCancel.Name = "tsBtnCancel";
+            this.tsBtnCancel.Size = new System.Drawing.Size(52, 22);
+            this.tsBtnCancel.Text = "取消";
+            this.tsBtnCancel.Click += new System.EventHandler(this.tsBtnCancel_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(280, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "课堂纪律";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(379, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "动手能力";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(478, 30);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "专注力";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(565, 30);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 12);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "逻辑思维能力";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(688, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(77, 12);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "表达沟通能力";
+            // 
+            // domainUpDown1
+            // 
+            this.domainUpDown1.Location = new System.Drawing.Point(774, 28);
+            this.domainUpDown1.Name = "domainUpDown1";
+            this.domainUpDown1.Size = new System.Drawing.Size(32, 21);
+            this.domainUpDown1.TabIndex = 10;
+            this.domainUpDown1.Text = "10";
+            // 
+            // domainUpDown2
+            // 
+            this.domainUpDown2.Location = new System.Drawing.Point(339, 28);
+            this.domainUpDown2.Name = "domainUpDown2";
+            this.domainUpDown2.Size = new System.Drawing.Size(32, 21);
+            this.domainUpDown2.TabIndex = 11;
+            this.domainUpDown2.Text = "10";
+            // 
+            // domainUpDown3
+            // 
+            this.domainUpDown3.Location = new System.Drawing.Point(438, 28);
+            this.domainUpDown3.Name = "domainUpDown3";
+            this.domainUpDown3.Size = new System.Drawing.Size(32, 21);
+            this.domainUpDown3.TabIndex = 12;
+            this.domainUpDown3.Text = "10";
+            // 
+            // domainUpDown4
+            // 
+            this.domainUpDown4.Location = new System.Drawing.Point(525, 28);
+            this.domainUpDown4.Name = "domainUpDown4";
+            this.domainUpDown4.Size = new System.Drawing.Size(32, 21);
+            this.domainUpDown4.TabIndex = 13;
+            this.domainUpDown4.Text = "10";
+            // 
+            // domainUpDown5
+            // 
+            this.domainUpDown5.Location = new System.Drawing.Point(648, 28);
+            this.domainUpDown5.Name = "domainUpDown5";
+            this.domainUpDown5.Size = new System.Drawing.Size(32, 21);
+            this.domainUpDown5.TabIndex = 14;
+            this.domainUpDown5.Text = "10";
             // 
             // FrmCourseEvaluate
             // 
@@ -332,6 +441,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStudentName;
         private System.Windows.Forms.DataGridViewComboBoxColumn ColSignType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColEvaluate;
-
+        private System.Windows.Forms.DomainUpDown domainUpDown5;
+        private System.Windows.Forms.DomainUpDown domainUpDown4;
+        private System.Windows.Forms.DomainUpDown domainUpDown3;
+        private System.Windows.Forms.DomainUpDown domainUpDown2;
+        private System.Windows.Forms.DomainUpDown domainUpDown1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -241,6 +241,7 @@ namespace BabySwim
                     xfDataGridView1.Rows[count].Cells[ColCourseCount.Name].Value = model.CourseCount;
                     xfDataGridView1.Rows[count].Cells[ColPhone.Name].Value = model.Phone;
                     xfDataGridView1.Rows[count].Cells[ColDescription.Name].Value = model.Description;
+                    xfDataGridView1.Rows[count].Cells[ColOpenId.Name].Value = model.OpenId;
                     xfDataGridView1.Rows[count].Cells[ColFamilyID.Name].ReadOnly = true;
                     xfDataGridView1.Rows[count].Cells[ColFamilyCode.Name].ReadOnly = true;
                 }
@@ -457,6 +458,7 @@ namespace BabySwim
                 model.FamilyName = zDataConverter.ToString(xfDataGridView1.Rows[index].Cells[ColFamilyName.Name].Value);
                 model.CourseCount = zDataConverter.ToDecimal(xfDataGridView1.Rows[index].Cells[ColCourseCount.Name].Value);
                 model.Phone = zDataConverter.ToString(xfDataGridView1.Rows[index].Cells[ColPhone.Name].Value);
+                model.OpenId = zDataConverter.ToString(xfDataGridView1.Rows[index].Cells[ColOpenId.Name].Value);
                 model.Description = zDataConverter.ToString(xfDataGridView1.Rows[index].Cells[ColDescription.Name].Value);
                 int ret = bll.Add(model);
                 if (ret == PhysicalConstants.SQL_Existed)
@@ -493,6 +495,7 @@ namespace BabySwim
                 model.FamilyName = zDataConverter.ToString(xfDataGridView1.Rows[index].Cells[ColFamilyName.Name].Value);
                 model.CourseCount = zDataConverter.ToDecimal(xfDataGridView1.Rows[index].Cells[ColCourseCount.Name].Value);
                 model.Phone = zDataConverter.ToString(xfDataGridView1.Rows[index].Cells[ColPhone.Name].Value);
+                model.OpenId = zDataConverter.ToString(xfDataGridView1.Rows[index].Cells[ColOpenId.Name].Value);
                 model.Description = zDataConverter.ToString(xfDataGridView1.Rows[index].Cells[ColDescription.Name].Value);
                 if (bll.Update(model))
                 {

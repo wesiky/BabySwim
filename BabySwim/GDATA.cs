@@ -9,6 +9,7 @@ using XF.ExControls;
 using System.Windows.Forms;
 using System.Globalization;
 using XF.Common;
+using XF.BLL;
 
 namespace BabySwim
 {
@@ -198,6 +199,10 @@ namespace BabySwim
                             selection.SectionNO = model.SectionNO;
                             selection.TeacherID = (int)model.TeacherID;
                             selection.StoreID = model.StoreID;
+                            selection.CreateDate = DateTime.Now;
+                            selection.CreateUser = LoginInfo.LoginName;
+                            selection.LastUpdateDate = DateTime.Now;
+                            selection.LastUpdateUser = LoginInfo.LoginName;
                             //新增选课
                             lstSql.Add(bllSelection.GetAddSql(selection));
                             //新增固定学员选课记录

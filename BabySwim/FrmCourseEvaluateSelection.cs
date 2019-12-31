@@ -96,6 +96,7 @@ namespace BabySwim
                 string[] dayNames = zDataConverter.ToString(bllConfiguration.GetItemValueByCache("DayNames")).Split(',');
                 xfClassScheduler1 = new XFClassScheduler(dayCount, roomCount, roomNames, dayNames);
                 xfClassScheduler1.Dock = DockStyle.Fill;
+                xfClassScheduler1.CellClick += xfClassScheduler1_CellClick;
                 this.Controls.Add(xfClassScheduler1);
             }
             DataTable dtSelection = bll.GetDayDetailList(dt, StoreID, ClassRoomID).Tables[0];
@@ -110,6 +111,11 @@ namespace BabySwim
                     xfClassScheduler1.Rows[model.LessonNO].Cells[model.ClassRoomID].Tag = model.SelectionID;
                 }
             }
+        }
+
+        private void XfClassScheduler1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

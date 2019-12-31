@@ -62,9 +62,9 @@ namespace XF.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Base_Family(");
-			strSql.Append("FamilyCode,FamilyName,CourseCount,Phone,Description,CreateDate,CreateUser,LastUpdateDate,LastUpdateUser,Enable)");
+			strSql.Append("FamilyCode,FamilyName,CourseCount,Phone,Description,CreateDate,CreateUser,LastUpdateDate,LastUpdateUser,Enable,OpenId)");
 			strSql.Append(" values (");
-			strSql.Append("@FamilyCode,@FamilyName,@CourseCount,@Phone,@Description,@CreateDate,@CreateUser,@LastUpdateDate,@LastUpdateUser,@Enable)");
+			strSql.Append("@FamilyCode,@FamilyName,@CourseCount,@Phone,@Description,@CreateDate,@CreateUser,@LastUpdateDate,@LastUpdateUser,@Enable,@OpenId)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@FamilyCode", SqlDbType.NVarChar,31),
@@ -76,7 +76,8 @@ namespace XF.SQLServerDAL
 					new SqlParameter("@LastUpdateDate", SqlDbType.DateTime),
 					new SqlParameter("@LastUpdateUser", SqlDbType.NVarChar,127),
 					new SqlParameter("@Enable", SqlDbType.Bit,1),
-                    new SqlParameter("@Phone",SqlDbType.NVarChar,18)};
+                    new SqlParameter("@Phone",SqlDbType.NVarChar,18),
+					new SqlParameter("@OpenId",SqlDbType.NVarChar,64)};
 			parameters[0].Value = model.FamilyCode;
 			parameters[1].Value = model.FamilyName;
 			parameters[2].Value = model.CourseCount;
@@ -87,6 +88,7 @@ namespace XF.SQLServerDAL
 			parameters[7].Value = model.LastUpdateUser;
 			parameters[8].Value = model.Enable;
             parameters[9].Value = model.Phone;
+			parameters[10].Value = model.OpenId;
 
 			object obj = SqlServerHelper.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -114,6 +116,7 @@ namespace XF.SQLServerDAL
 			strSql.Append("CreateUser=@CreateUser,");
 			strSql.Append("LastUpdateDate=@LastUpdateDate,");
 			strSql.Append("LastUpdateUser=@LastUpdateUser,");
+			strSql.Append("OpenId=@OpenId,");
 			strSql.Append("Enable=@Enable");
 			strSql.Append(" where FamilyID=@FamilyID");
 			SqlParameter[] parameters = {
@@ -127,7 +130,8 @@ namespace XF.SQLServerDAL
 					new SqlParameter("@LastUpdateUser", SqlDbType.NVarChar,127),
 					new SqlParameter("@Enable", SqlDbType.Bit,1),
 					new SqlParameter("@FamilyID", SqlDbType.Int,4),
-                    new SqlParameter("@Phone",SqlDbType.NVarChar,18)};
+                    new SqlParameter("@Phone",SqlDbType.NVarChar,18),
+					new SqlParameter("@OpenId",SqlDbType.NVarChar,64)};
 			parameters[0].Value = model.FamilyCode;
 			parameters[1].Value = model.FamilyName;
 			parameters[2].Value = model.CourseCount;
@@ -139,6 +143,7 @@ namespace XF.SQLServerDAL
 			parameters[8].Value = model.Enable;
 			parameters[9].Value = model.FamilyID;
             parameters[10].Value = model.Phone;
+			parameters[11].Value = model.OpenId;
 
 			int rows=SqlServerHelper.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -203,7 +208,7 @@ namespace XF.SQLServerDAL
 		public XF.Model.Base_Family GetModel(int FamilyID)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 FamilyID,FamilyCode,FamilyName,CourseCount,Phone,Description,CreateDate,CreateUser,LastUpdateDate,LastUpdateUser,Enable from Base_Family ");
+			strSql.Append("select  top 1 FamilyID,FamilyCode,FamilyName,CourseCount,Phone,Description,CreateDate,CreateUser,LastUpdateDate,LastUpdateUser,Enable,OpenId from Base_Family ");
 			strSql.Append(" where FamilyID=@FamilyID");
 			SqlParameter[] parameters = {
 					new SqlParameter("@FamilyID", SqlDbType.Int,4)
@@ -271,7 +276,11 @@ namespace XF.SQLServerDAL
 				{
 					model.LastUpdateUser=row["LastUpdateUser"].ToString();
 				}
-				if(row["Enable"]!=null && row["Enable"].ToString()!="")
+				if (row["OpenId"] != null)
+				{
+					model.OpenId = row["OpenId"].ToString();
+				}
+				if (row["Enable"]!=null && row["Enable"].ToString()!="")
 				{
 					if((row["Enable"].ToString()=="1")||(row["Enable"].ToString().ToLower()=="true"))
 					{
@@ -292,7 +301,7 @@ namespace XF.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select FamilyID,FamilyCode,FamilyName,CourseCount,Phone,Description,CreateDate,CreateUser,LastUpdateDate,LastUpdateUser,Enable ");
+			strSql.Append("select FamilyID,FamilyCode,FamilyName,CourseCount,Phone,Description,CreateDate,CreateUser,LastUpdateDate,LastUpdateUser,Enable,OpenId ");
 			strSql.Append(" FROM Base_Family ");
 			if(strWhere.Trim()!="")
 			{
@@ -312,7 +321,7 @@ namespace XF.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" FamilyID,FamilyCode,FamilyName,CourseCount,Phone,Description,CreateDate,CreateUser,LastUpdateDate,LastUpdateUser,Enable ");
+			strSql.Append(" FamilyID,FamilyCode,FamilyName,CourseCount,Phone,Description,CreateDate,CreateUser,LastUpdateDate,LastUpdateUser,Enable,OpenId ");
 			strSql.Append(" FROM Base_Family ");
 			if(strWhere.Trim()!="")
 			{
@@ -411,16 +420,56 @@ namespace XF.SQLServerDAL
                 return false;
         }
 
-        /// <summary>
-        /// 获取分页数据
-        /// </summary>
-        /// <param name="strWhere"></param>
-        /// <param name="strOrder"></param>
-        /// <param name="pageIndex"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="count"></param>
-        /// <returns></returns>
-        public DataTable GetListByPage(string strWhere, string strOrder, int pageIndex, int pageSize, ref int count)
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public XF.Model.Base_Family GetModel(string FamilyCode,string FamilyName)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select  top 1 FamilyID,FamilyCode,FamilyName,CourseCount,Phone,Description,CreateDate,CreateUser,LastUpdateDate,LastUpdateUser,Enable,OpenId from Base_Family ");
+			strSql.Append(" where FamilyCode=@FamilyCode ");
+			strSql.Append(" and FamilyName=@FamilyName ");
+			SqlParameter[] parameters = {
+					new SqlParameter("@FamilyCode", SqlDbType.NVarChar,31),
+					new SqlParameter("@FamilyName", SqlDbType.NVarChar,7)
+			};
+			parameters[0].Value = FamilyCode;
+			parameters[1].Value = FamilyName;
+
+			XF.Model.Base_Family model = new XF.Model.Base_Family();
+			DataSet ds = SqlServerHelper.Query(strSql.ToString(), parameters);
+			if (ds.Tables[0].Rows.Count > 0)
+			{
+				return DataRowToModel(ds.Tables[0].Rows[0]);
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public bool UpdateOpenId(string familyId,string openId)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("update Base_Family set ");
+			strSql.Append("OpenId='" + openId + "' ");
+			strSql.Append("where FamilyId = " + familyId + "));");
+			if (SqlServerHelper.ExecuteSql(strSql.ToString()) >= 1)
+				return true;
+			else
+				return false;
+		}
+
+		/// <summary>
+		/// 获取分页数据
+		/// </summary>
+		/// <param name="strWhere"></param>
+		/// <param name="strOrder"></param>
+		/// <param name="pageIndex"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="count"></param>
+		/// <returns></returns>
+		public DataTable GetListByPage(string strWhere, string strOrder, int pageIndex, int pageSize, ref int count)
         {
             string tbName = " Base_Family ";
             string tbGetFields = " Base_Family.* ";

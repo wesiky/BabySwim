@@ -56,16 +56,23 @@ namespace XF.IDAL
 		#region  MethodEx
         bool DeleteMultiple(string IDs);
 
-        /// <summary>
-        /// 获取分页数据
-        /// </summary>
-        /// <param name="strWhere"></param>
-        /// <param name="strOrder"></param>
-        /// <param name="pageIndex"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="count"></param>
-        /// <returns></returns>
-        DataTable GetListByPage(string strWhere, string strOrder, int pageIndex, int pageSize, ref int count);
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		XF.Model.Base_Family GetModel(string FamilyCode, string FamilyName);
+
+		bool UpdateOpenId(string familyId, string openId);
+
+		/// <summary>
+		/// 获取分页数据
+		/// </summary>
+		/// <param name="strWhere"></param>
+		/// <param name="strOrder"></param>
+		/// <param name="pageIndex"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="count"></param>
+		/// <returns></returns>
+		DataTable GetListByPage(string strWhere, string strOrder, int pageIndex, int pageSize, ref int count);
         
 		#endregion  MethodEx
 	} 

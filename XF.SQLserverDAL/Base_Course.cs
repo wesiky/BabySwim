@@ -59,7 +59,7 @@ namespace XF.SQLServerDAL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int Add(XF.Model.Base_Course model)
+		public int Add(XF.Model.BaseCourse model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Base_Course(");
@@ -102,7 +102,7 @@ namespace XF.SQLServerDAL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(XF.Model.Base_Course model)
+		public bool Update(XF.Model.BaseCourse model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update Base_Course set ");
@@ -199,7 +199,7 @@ namespace XF.SQLServerDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public XF.Model.Base_Course GetModel(int CourseID)
+		public XF.Model.BaseCourse GetModel(int CourseID)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
@@ -210,7 +210,7 @@ namespace XF.SQLServerDAL
 			};
 			parameters[0].Value = CourseID;
 
-			XF.Model.Base_Course model=new XF.Model.Base_Course();
+			XF.Model.BaseCourse model=new XF.Model.BaseCourse();
 			DataSet ds=SqlServerHelper.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
 			{
@@ -226,9 +226,9 @@ namespace XF.SQLServerDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public XF.Model.Base_Course DataRowToModel(DataRow row)
+		public XF.Model.BaseCourse DataRowToModel(DataRow row)
 		{
-			XF.Model.Base_Course model=new XF.Model.Base_Course();
+			XF.Model.BaseCourse model=new XF.Model.BaseCourse();
 			if (row != null)
 			{
 				if(row["CourseID"]!=null && row["CourseID"].ToString()!="")

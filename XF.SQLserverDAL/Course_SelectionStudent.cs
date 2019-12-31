@@ -635,12 +635,25 @@ namespace XF.SQLServerDAL
             strSql.Append(" where SelectionStudentID = ");
             strSql.Append(selectionStudentID);
             strSql.Append(";");
-            if(signTypeOld ==4 && signType <4)
+            //首次签到且未请假时扣除课时
+            if(signTypeOld == 0&& signType <4)
+            {
+                strSql.Append("update Base_Family set CourseCount = CourseCount - 1 ");
+                strSql.Append(" where FamilyID = (select top 1 FamilyID from V_Course_SelectionStudentDetail where SelectionStudentID = " + selectionStudentID + ");");
+            }
+            //首次签到且请假时不扣除课时
+            else if(signType ==0&& signType ==4)
+            {
+                
+            }
+            //非首次签到时，签到类型由正常改为请假时还原课时
+            else if (signTypeOld < 4 && signType == 4)
             {
                 strSql.Append("update Base_Family set CourseCount = CourseCount + 1 ");
                 strSql.Append(" where FamilyID = (select top 1 FamilyID from V_Course_SelectionStudentDetail where SelectionStudentID = " + selectionStudentID + ");");
             }
-            if (signTypeOld < 4 && signType == 4)
+            //非首次签到时，签到类型由请假改为正常时扣除课时
+            else if (signTypeOld ==4 && signType <4)
             {
                 strSql.Append("update Base_Family set CourseCount = CourseCount - 1 ");
                 strSql.Append(" where FamilyID = (select top 1 FamilyID from V_Course_SelectionStudentDetail where SelectionStudentID = " + selectionStudentID + ");");

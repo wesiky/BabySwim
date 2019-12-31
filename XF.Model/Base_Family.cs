@@ -21,6 +21,7 @@ namespace XF.Model
 		private string _lastupdateuser;
         private bool _enable = true;
         private string _phone;
+		private string _openid;
 
         public string Phone
         {
@@ -106,6 +107,12 @@ namespace XF.Model
 		{
 			set{ _enable=value;}
 			get{return _enable;}
+		}
+
+		public string OpenId
+		{
+			set { _openid = value; }
+			get { return _openid; }
 		}
 		#endregion Model
 

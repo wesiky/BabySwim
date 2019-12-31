@@ -81,6 +81,14 @@ namespace BabySwim
         {
             int sum = 0;
             string strWhere = string.Empty;
+            if(!string.IsNullOrEmpty(tbStudent.Text.Trim()))
+            {
+                strWhere += " and (StudentCode like '%" + tbStudent.Text.Trim() + "%' or StudentName like '%" + tbStudent.Text.Trim() + "%')";
+            }
+            if(!string.IsNullOrEmpty(tbFamily.Text.Trim()))
+            {
+                strWhere += " and (FamilyCode like '%" + tbFamily.Text.Trim() + "%' or FamilyName like '%" + tbFamily.Text.Trim() + "%')";
+            }
             List<XF.Model.Base_Student> models = bllStudent.GetModelListByPage(strWhere, " StudentCode Asc ", pagerControl1.PageIndex, pagerControl1.PageSize, ref sum);
             pagerControl1.DrawControl(sum);
             xfDataGridView1.Rows.Clear();
@@ -99,12 +107,10 @@ namespace BabySwim
                 xfDataGridView1.Rows[count].Cells[ColCourse.Name].Value = model.CourseID.ToString();
                 xfDataGridView1.Rows[count].Cells[ColProgress.Name].Value = model.Progress;
                 xfDataGridView1.Rows[count].Cells[ColStudentDescription.Name].Value = model.Description;
-                xfDataGridView1.Rows[count].Cells[ColStudentId.Name].ReadOnly = true;
-                xfDataGridView1.Rows[count].Cells[ColStudentCode.Name].ReadOnly = true;
-                xfDataGridView1.Rows[count].Cells[ColBirthdate.Name].ReadOnly = true;
-                xfDataGridView1.Rows[count].Cells[ColBirthday.Name].ReadOnly = true;
-                xfDataGridView1.Rows[count].Cells[ColCourse.Name].ReadOnly = true;
-                xfDataGridView1.Rows[count].Cells[ColProgress.Name].ReadOnly = true;
+                xfDataGridView1.Rows[count].Cells[ColFamilyCode.Name].Value = model.FamilyCode;
+                xfDataGridView1.Rows[count].Cells[ColFamilyName.Name].Value = model.FamilyName;
+                xfDataGridView1.Rows[count].Cells[ColCourseCount.Name].Value = model.CourseCount;
+                xfDataGridView1.Rows[count].Cells[ColPhone.Name].Value = model.Phone;
             }
         }
         private void pagerControl1_OnPageChanged(object sender, EventArgs e)

@@ -35,12 +35,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pagerControl1 = new TActionProject.PagerControl();
             this.xfDataGridView1 = new XF.ExControls.XFDataGridView();
-            this.ColFamilyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColFamilyCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColFamilyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColCourseCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsBtnAdd = new System.Windows.Forms.ToolStripButton();
             this.tsBtnSave = new System.Windows.Forms.ToolStripButton();
@@ -66,6 +60,13 @@
             this.tsBtnStudentSave = new System.Windows.Forms.ToolStripButton();
             this.tsBtnStudentDelete = new System.Windows.Forms.ToolStripButton();
             this.tsBtnRefresh = new System.Windows.Forms.ToolStripButton();
+            this.ColFamilyID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColFamilyCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColFamilyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCourseCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColOpenId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -132,6 +133,7 @@
             this.ColFamilyName,
             this.ColCourseCount,
             this.ColPhone,
+            this.ColOpenId,
             this.ColDescription});
             this.xfDataGridView1.ContextMenuScriptEnable = true;
             this.xfDataGridView1.Location = new System.Drawing.Point(0, 24);
@@ -143,40 +145,6 @@
             this.xfDataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.xfDataGridView1_CellEndEdit);
             this.xfDataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.xfDataGridView1_CellValueChanged);
             this.xfDataGridView1.CurrentCellChanged += new System.EventHandler(this.xfDataGridView1_CurrentCellChanged);
-            // 
-            // ColFamilyID
-            // 
-            this.ColFamilyID.HeaderText = "家长ID";
-            this.ColFamilyID.Name = "ColFamilyID";
-            this.ColFamilyID.ReadOnly = true;
-            this.ColFamilyID.Visible = false;
-            // 
-            // ColFamilyCode
-            // 
-            this.ColFamilyCode.HeaderText = "家长编号";
-            this.ColFamilyCode.Name = "ColFamilyCode";
-            // 
-            // ColFamilyName
-            // 
-            this.ColFamilyName.HeaderText = "家长姓名";
-            this.ColFamilyName.Name = "ColFamilyName";
-            // 
-            // ColCourseCount
-            // 
-            this.ColCourseCount.HeaderText = "剩余课时";
-            this.ColCourseCount.Name = "ColCourseCount";
-            // 
-            // ColPhone
-            // 
-            this.ColPhone.HeaderText = "联系方式";
-            this.ColPhone.Name = "ColPhone";
-            this.ColPhone.Width = 120;
-            // 
-            // ColDescription
-            // 
-            this.ColDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColDescription.HeaderText = "备注";
-            this.ColDescription.Name = "ColDescription";
             // 
             // toolStrip1
             // 
@@ -234,7 +202,6 @@
             // 
             // tsTbFamily
             // 
-            this.tsTbFamily.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.tsTbFamily.Name = "tsTbFamily";
             this.tsTbFamily.Size = new System.Drawing.Size(91, 25);
             // 
@@ -401,6 +368,45 @@
             this.tsBtnRefresh.Text = "刷新";
             this.tsBtnRefresh.Click += new System.EventHandler(this.tsBtnRefresh_Click);
             // 
+            // ColFamilyID
+            // 
+            this.ColFamilyID.HeaderText = "家长ID";
+            this.ColFamilyID.Name = "ColFamilyID";
+            this.ColFamilyID.ReadOnly = true;
+            this.ColFamilyID.Visible = false;
+            // 
+            // ColFamilyCode
+            // 
+            this.ColFamilyCode.HeaderText = "家长编号";
+            this.ColFamilyCode.Name = "ColFamilyCode";
+            // 
+            // ColFamilyName
+            // 
+            this.ColFamilyName.HeaderText = "家长姓名";
+            this.ColFamilyName.Name = "ColFamilyName";
+            // 
+            // ColCourseCount
+            // 
+            this.ColCourseCount.HeaderText = "剩余课时";
+            this.ColCourseCount.Name = "ColCourseCount";
+            // 
+            // ColPhone
+            // 
+            this.ColPhone.HeaderText = "联系方式";
+            this.ColPhone.Name = "ColPhone";
+            this.ColPhone.Width = 120;
+            // 
+            // ColOpenId
+            // 
+            this.ColOpenId.HeaderText = "微信OpenId";
+            this.ColOpenId.Name = "ColOpenId";
+            // 
+            // ColDescription
+            // 
+            this.ColDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColDescription.HeaderText = "备注";
+            this.ColDescription.Name = "ColDescription";
+            // 
             // FrmFamilyList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -447,12 +453,6 @@
         private TActionProject.PagerControl pagerControl1;
         private XF.ExControls.XFDataGridView xfDataGridView1;
         private XF.ExControls.XFDataGridView xfDataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColFamilyID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColFamilyCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColFamilyName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCourseCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStudentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStudentCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStudentName;
@@ -464,5 +464,12 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn ColCourse;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColProgress;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStudentDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColFamilyID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColFamilyCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColFamilyName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCourseCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColOpenId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColDescription;
     }
 }

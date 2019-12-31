@@ -38,7 +38,6 @@
             this.tbStudent = new System.Windows.Forms.ToolStripTextBox();
             this.tsBtnSearch = new System.Windows.Forms.ToolStripButton();
             this.xfDataGridView1 = new XF.ExControls.XFDataGridView();
-            this.pagerControl1 = new TActionProject.PagerControl();
             this.ColStudentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStudentCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +48,14 @@
             this.ColBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCourse = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ColProgress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColFamilyCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColFamilyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCourseCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColStudentDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pagerControl1 = new TActionProject.PagerControl();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.tbFamily = new System.Windows.Forms.ToolStripTextBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xfDataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +65,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
             this.tbStudent,
+            this.toolStripLabel2,
+            this.tbFamily,
             this.tsBtnSearch});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -74,6 +82,7 @@
             // 
             // tbStudent
             // 
+            this.tbStudent.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.tbStudent.Name = "tbStudent";
             this.tbStudent.Size = new System.Drawing.Size(100, 25);
             // 
@@ -107,6 +116,10 @@
             this.ColBirthday,
             this.ColCourse,
             this.ColProgress,
+            this.ColFamilyCode,
+            this.ColFamilyName,
+            this.ColCourseCount,
+            this.ColPhone,
             this.ColStudentDescription});
             this.xfDataGridView1.ContextMenuScriptEnable = true;
             this.xfDataGridView1.Location = new System.Drawing.Point(0, 28);
@@ -116,23 +129,6 @@
             this.xfDataGridView1.Size = new System.Drawing.Size(1173, 452);
             this.xfDataGridView1.TabIndex = 1;
             this.xfDataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.xfDataGridView1_DataError);
-            // 
-            // pagerControl1
-            // 
-            this.pagerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pagerControl1.BackColor = System.Drawing.Color.Transparent;
-            this.pagerControl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(78)))), ((int)(((byte)(151)))));
-            this.pagerControl1.JumpText = "Go";
-            this.pagerControl1.Location = new System.Drawing.Point(573, 486);
-            this.pagerControl1.MaximumSize = new System.Drawing.Size(600, 29);
-            this.pagerControl1.MinimumSize = new System.Drawing.Size(600, 29);
-            this.pagerControl1.Name = "pagerControl1";
-            this.pagerControl1.PageIndex = 1;
-            this.pagerControl1.PageSize = 100;
-            this.pagerControl1.RecordCount = 0;
-            this.pagerControl1.Size = new System.Drawing.Size(600, 29);
-            this.pagerControl1.TabIndex = 2;
-            this.pagerControl1.OnPageChanged += new System.EventHandler(this.pagerControl1_OnPageChanged);
             // 
             // ColStudentId
             // 
@@ -212,6 +208,30 @@
             this.ColProgress.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColProgress.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // ColFamilyCode
+            // 
+            this.ColFamilyCode.HeaderText = "家长编号";
+            this.ColFamilyCode.Name = "ColFamilyCode";
+            this.ColFamilyCode.ReadOnly = true;
+            // 
+            // ColFamilyName
+            // 
+            this.ColFamilyName.HeaderText = "家长名称";
+            this.ColFamilyName.Name = "ColFamilyName";
+            this.ColFamilyName.ReadOnly = true;
+            // 
+            // ColCourseCount
+            // 
+            this.ColCourseCount.HeaderText = "剩余课时";
+            this.ColCourseCount.Name = "ColCourseCount";
+            this.ColCourseCount.ReadOnly = true;
+            // 
+            // ColPhone
+            // 
+            this.ColPhone.HeaderText = "家长电话";
+            this.ColPhone.Name = "ColPhone";
+            this.ColPhone.ReadOnly = true;
+            // 
             // ColStudentDescription
             // 
             this.ColStudentDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -219,6 +239,35 @@
             this.ColStudentDescription.MinimumWidth = 100;
             this.ColStudentDescription.Name = "ColStudentDescription";
             this.ColStudentDescription.ReadOnly = true;
+            // 
+            // pagerControl1
+            // 
+            this.pagerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pagerControl1.BackColor = System.Drawing.Color.Transparent;
+            this.pagerControl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(78)))), ((int)(((byte)(151)))));
+            this.pagerControl1.JumpText = "Go";
+            this.pagerControl1.Location = new System.Drawing.Point(573, 486);
+            this.pagerControl1.MaximumSize = new System.Drawing.Size(600, 29);
+            this.pagerControl1.MinimumSize = new System.Drawing.Size(600, 29);
+            this.pagerControl1.Name = "pagerControl1";
+            this.pagerControl1.PageIndex = 1;
+            this.pagerControl1.PageSize = 100;
+            this.pagerControl1.RecordCount = 0;
+            this.pagerControl1.Size = new System.Drawing.Size(600, 29);
+            this.pagerControl1.TabIndex = 2;
+            this.pagerControl1.OnPageChanged += new System.EventHandler(this.pagerControl1_OnPageChanged);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(32, 22);
+            this.toolStripLabel2.Text = "家长";
+            // 
+            // tbFamily
+            // 
+            this.tbFamily.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.tbFamily.Name = "tbFamily";
+            this.tbFamily.Size = new System.Drawing.Size(100, 25);
             // 
             // FrmStudentList
             // 
@@ -258,6 +307,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColBirthday;
         private System.Windows.Forms.DataGridViewComboBoxColumn ColCourse;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColProgress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColFamilyCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColFamilyName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCourseCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStudentDescription;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripTextBox tbFamily;
     }
 }
