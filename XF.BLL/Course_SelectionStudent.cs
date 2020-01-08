@@ -259,9 +259,9 @@ namespace XF.BLL
         /// <summary>
         /// 获取增加数据SQL
         /// </summary>
-        public string GetUpdateEvaluateSql(int selectionStudentID, string evaluateFilePath)
+        public string GetUpdateEvaluateSql(XF.Model.Course_SelectionStudent selectionStudent)
         {
-            return dal.GetUpdateEvaluateSql(selectionStudentID, evaluateFilePath);
+            return dal.GetUpdateEvaluateSql(selectionStudent);
         }
 
         /// <summary>

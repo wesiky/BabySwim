@@ -32,7 +32,7 @@ namespace BabySwim
         {
             this.TextForeColor = ConfigSetting.TextForeColor;
             this.Icon = ConfigSetting.ProjectIcon;
-            List<XF.Model.BaseCourse> models = bll.GetModelList(string.Empty);
+            List<XF.Model.Base_Course> models = bll.GetModelList(string.Empty);
             if (models.Count > 0)
             {
                 tableLayoutPanel1.ColumnStyles.Clear();
@@ -58,10 +58,10 @@ namespace BabySwim
         private void BtnCourse_Click(object sender, EventArgs e)
         {
             this.Hide();
-            XF.Model.BaseCourse course;
+            XF.Model.Base_Course course;
             try
             {
-                course = ((sender as Button).Tag) as XF.Model.BaseCourse;
+                course = ((sender as Button).Tag) as XF.Model.Base_Course;
                 model.CourseID = course.CourseID;
                 model.CourseName = course.CourseName;
             }

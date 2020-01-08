@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +13,16 @@ namespace WeChat.Reponsitory
     {
         public FamilyReponsitory(WeChatContext content) : base(content)
         {
+        }
+
+        public BaseFamily GetFamily(string openId)
+        {
+            return Context.Families
+                .Include(a => a.StudentInfos).ThenInclude(a => a.Student)
+                .Include(a => a.StudentInfos).ThenInclude(a => a.Course)
+                .Include(a => a.StudentInfos).ThenInclude(a => a.Teacher)
+                .Include(a => a.StudentInfos).ThenInclude(a => a.Adviser)
+                .FirstOrDefault(a=>a.OpenId == openId);
         }
     }
 }

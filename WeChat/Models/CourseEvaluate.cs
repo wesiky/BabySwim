@@ -20,5 +20,8 @@ namespace WeChat.Models
         public int Score { get; set; }
 
         public int MaxScore { get; set; }
+
+        [ForeignKey("SelectionStudentId")]
+        public virtual CourseSelectionStudent SelectionStudent { get; set; }
     }
 }

@@ -47,6 +47,7 @@
     <Compile Include="Assist_Notice.cs" />
     <Compile Include="Base_Course.cs" />
     <Compile Include="Base_Customer.cs" />
+    <Compile Include="Course_Evaluate.cs" />
     <Compile Include="Base_Family.cs" />
     <Compile Include="Base_Student.cs" />
     <Compile Include="Base_Teacher.cs" />

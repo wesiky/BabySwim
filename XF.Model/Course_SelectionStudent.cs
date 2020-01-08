@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace XF.Model
 {
 	/// <summary>
@@ -150,6 +152,9 @@ namespace XF.Model
             set { _teachername = value; }
         }
         #endregion
+
+        private List<Course_Evaluate> _evaluates;
+
         /// <summary>
 		/// 
 		/// </summary>
@@ -246,8 +251,21 @@ namespace XF.Model
 			set{ _enable=value;}
 			get{return _enable;}
 		}
-		#endregion Model
 
-	}
+        public List<Course_Evaluate> Evaluates 
+        {
+            set { _evaluates = value; }
+            get 
+            { 
+                if(_evaluates == null)
+                {
+                    _evaluates = new List<Course_Evaluate>();
+                }
+                return _evaluates; 
+            }
+        }
+        #endregion Model
+
+    }
 }
 

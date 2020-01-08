@@ -44,7 +44,7 @@ namespace XF.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int  Add(XF.Model.BaseCourse model)
+		public int  Add(XF.Model.Base_Course model)
 		{
             if (Exists(model.CourseName))
             {
@@ -64,7 +64,7 @@ namespace XF.BLL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(XF.Model.BaseCourse model)
+		public bool Update(XF.Model.Base_Course model)
 		{
             model.LastUpdateUser = LoginInfo.LoginName;
             model.LastUpdateDate = DateTime.Now;
@@ -90,7 +90,7 @@ namespace XF.BLL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public XF.Model.BaseCourse GetModel(int CourseID)
+		public XF.Model.Base_Course GetModel(int CourseID)
 		{
 			
 			return dal.GetModel(CourseID);
@@ -113,7 +113,7 @@ namespace XF.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<XF.Model.BaseCourse> GetModelList(string strWhere)
+		public List<XF.Model.Base_Course> GetModelList(string strWhere)
 		{
 			DataSet ds = dal.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -121,13 +121,13 @@ namespace XF.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<XF.Model.BaseCourse> DataTableToList(DataTable dt)
+		public List<XF.Model.Base_Course> DataTableToList(DataTable dt)
 		{
-			List<XF.Model.BaseCourse> modelList = new List<XF.Model.BaseCourse>();
+			List<XF.Model.Base_Course> modelList = new List<XF.Model.Base_Course>();
 			int rowsCount = dt.Rows.Count;
 			if (rowsCount > 0)
 			{
-				XF.Model.BaseCourse model;
+				XF.Model.Base_Course model;
 				for (int n = 0; n < rowsCount; n++)
 				{
 					model = dal.DataRowToModel(dt.Rows[n]);

@@ -39,6 +39,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.nudCommunication = new System.Windows.Forms.NumericUpDown();
+            this.nudLogic = new System.Windows.Forms.NumericUpDown();
+            this.nudConcentration = new System.Windows.Forms.NumericUpDown();
+            this.nudPractical = new System.Windows.Forms.NumericUpDown();
+            this.nudDiscipline = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.rtcEvaluate = new XF.ExControls.RichTextControl();
             this.xfDataGridView1 = new XF.ExControls.XFDataGridView();
             this.ColSelectionStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,21 +60,17 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsBtnSure = new System.Windows.Forms.ToolStripButton();
             this.tsBtnCancel = new System.Windows.Forms.ToolStripButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDown2 = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDown3 = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDown4 = new System.Windows.Forms.DomainUpDown();
-            this.domainUpDown5 = new System.Windows.Forms.DomainUpDown();
+            this.tsBtnSendEvaluate = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCommunication)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLogic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConcentration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPractical)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDiscipline)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xfDataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -99,11 +105,11 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.domainUpDown5);
-            this.splitContainer1.Panel2.Controls.Add(this.domainUpDown4);
-            this.splitContainer1.Panel2.Controls.Add(this.domainUpDown3);
-            this.splitContainer1.Panel2.Controls.Add(this.domainUpDown2);
-            this.splitContainer1.Panel2.Controls.Add(this.domainUpDown1);
+            this.splitContainer1.Panel2.Controls.Add(this.nudCommunication);
+            this.splitContainer1.Panel2.Controls.Add(this.nudLogic);
+            this.splitContainer1.Panel2.Controls.Add(this.nudConcentration);
+            this.splitContainer1.Panel2.Controls.Add(this.nudPractical);
+            this.splitContainer1.Panel2.Controls.Add(this.nudDiscipline);
             this.splitContainer1.Panel2.Controls.Add(this.label9);
             this.splitContainer1.Panel2.Controls.Add(this.label8);
             this.splitContainer1.Panel2.Controls.Add(this.label7);
@@ -193,6 +199,136 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "上课日期";
             // 
+            // nudCommunication
+            // 
+            this.nudCommunication.Location = new System.Drawing.Point(774, 28);
+            this.nudCommunication.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudCommunication.Name = "nudCommunication";
+            this.nudCommunication.Size = new System.Drawing.Size(32, 21);
+            this.nudCommunication.TabIndex = 19;
+            this.nudCommunication.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // nudLogic
+            // 
+            this.nudLogic.Location = new System.Drawing.Point(648, 28);
+            this.nudLogic.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudLogic.Name = "nudLogic";
+            this.nudLogic.Size = new System.Drawing.Size(32, 21);
+            this.nudLogic.TabIndex = 18;
+            this.nudLogic.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // nudConcentration
+            // 
+            this.nudConcentration.Location = new System.Drawing.Point(525, 28);
+            this.nudConcentration.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudConcentration.Name = "nudConcentration";
+            this.nudConcentration.Size = new System.Drawing.Size(32, 21);
+            this.nudConcentration.TabIndex = 17;
+            this.nudConcentration.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // nudPractical
+            // 
+            this.nudPractical.Location = new System.Drawing.Point(438, 28);
+            this.nudPractical.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudPractical.Name = "nudPractical";
+            this.nudPractical.Size = new System.Drawing.Size(32, 21);
+            this.nudPractical.TabIndex = 16;
+            this.nudPractical.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // nudDiscipline
+            // 
+            this.nudDiscipline.Location = new System.Drawing.Point(339, 28);
+            this.nudDiscipline.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nudDiscipline.Name = "nudDiscipline";
+            this.nudDiscipline.Size = new System.Drawing.Size(32, 21);
+            this.nudDiscipline.TabIndex = 15;
+            this.nudDiscipline.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(688, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(77, 12);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "表达沟通能力";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(565, 30);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 12);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "逻辑思维能力";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(478, 30);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "专注力";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(379, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "动手能力";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(280, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "课堂纪律";
+            // 
             // rtcEvaluate
             // 
             this.rtcEvaluate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -204,7 +340,7 @@
             this.rtcEvaluate.ContentText = "";
             this.rtcEvaluate.Location = new System.Drawing.Point(280, 55);
             this.rtcEvaluate.Name = "rtcEvaluate";
-            this.rtcEvaluate.Size = new System.Drawing.Size(535, 365);
+            this.rtcEvaluate.Size = new System.Drawing.Size(535, 367);
             this.rtcEvaluate.TabIndex = 4;
             // 
             // xfDataGridView1
@@ -229,7 +365,7 @@
             this.xfDataGridView1.Name = "xfDataGridView1";
             this.xfDataGridView1.ReadOnly = true;
             this.xfDataGridView1.RowTemplate.Height = 27;
-            this.xfDataGridView1.Size = new System.Drawing.Size(275, 398);
+            this.xfDataGridView1.Size = new System.Drawing.Size(275, 400);
             this.xfDataGridView1.TabIndex = 1;
             this.xfDataGridView1.CurrentCellChanged += new System.EventHandler(this.xfDataGridView1_CurrentCellChanged);
             // 
@@ -281,7 +417,8 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsBtnSure,
-            this.tsBtnCancel});
+            this.tsBtnCancel,
+            this.tsBtnSendEvaluate});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(815, 25);
@@ -306,90 +443,14 @@
             this.tsBtnCancel.Text = "取消";
             this.tsBtnCancel.Click += new System.EventHandler(this.tsBtnCancel_Click);
             // 
-            // label5
+            // tsBtnSendEvaluate
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(280, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 12);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "课堂纪律";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(379, 30);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "动手能力";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(478, 30);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 12);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "专注力";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(565, 30);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 12);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "逻辑思维能力";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(688, 30);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 12);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "表达沟通能力";
-            // 
-            // domainUpDown1
-            // 
-            this.domainUpDown1.Location = new System.Drawing.Point(774, 28);
-            this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(32, 21);
-            this.domainUpDown1.TabIndex = 10;
-            this.domainUpDown1.Text = "10";
-            // 
-            // domainUpDown2
-            // 
-            this.domainUpDown2.Location = new System.Drawing.Point(339, 28);
-            this.domainUpDown2.Name = "domainUpDown2";
-            this.domainUpDown2.Size = new System.Drawing.Size(32, 21);
-            this.domainUpDown2.TabIndex = 11;
-            this.domainUpDown2.Text = "10";
-            // 
-            // domainUpDown3
-            // 
-            this.domainUpDown3.Location = new System.Drawing.Point(438, 28);
-            this.domainUpDown3.Name = "domainUpDown3";
-            this.domainUpDown3.Size = new System.Drawing.Size(32, 21);
-            this.domainUpDown3.TabIndex = 12;
-            this.domainUpDown3.Text = "10";
-            // 
-            // domainUpDown4
-            // 
-            this.domainUpDown4.Location = new System.Drawing.Point(525, 28);
-            this.domainUpDown4.Name = "domainUpDown4";
-            this.domainUpDown4.Size = new System.Drawing.Size(32, 21);
-            this.domainUpDown4.TabIndex = 13;
-            this.domainUpDown4.Text = "10";
-            // 
-            // domainUpDown5
-            // 
-            this.domainUpDown5.Location = new System.Drawing.Point(648, 28);
-            this.domainUpDown5.Name = "domainUpDown5";
-            this.domainUpDown5.Size = new System.Drawing.Size(32, 21);
-            this.domainUpDown5.TabIndex = 14;
-            this.domainUpDown5.Text = "10";
+            this.tsBtnSendEvaluate.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSendEvaluate.Image")));
+            this.tsBtnSendEvaluate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnSendEvaluate.Name = "tsBtnSendEvaluate";
+            this.tsBtnSendEvaluate.Size = new System.Drawing.Size(52, 22);
+            this.tsBtnSendEvaluate.Text = "推送";
+            this.tsBtnSendEvaluate.Click += new System.EventHandler(this.tsBtnSendEvaluate_Click);
             // 
             // FrmCourseEvaluate
             // 
@@ -412,6 +473,11 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudCommunication)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLogic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConcentration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPractical)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDiscipline)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xfDataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -441,15 +507,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColStudentName;
         private System.Windows.Forms.DataGridViewComboBoxColumn ColSignType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColEvaluate;
-        private System.Windows.Forms.DomainUpDown domainUpDown5;
-        private System.Windows.Forms.DomainUpDown domainUpDown4;
-        private System.Windows.Forms.DomainUpDown domainUpDown3;
-        private System.Windows.Forms.DomainUpDown domainUpDown2;
-        private System.Windows.Forms.DomainUpDown domainUpDown1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown nudCommunication;
+        private System.Windows.Forms.NumericUpDown nudLogic;
+        private System.Windows.Forms.NumericUpDown nudConcentration;
+        private System.Windows.Forms.NumericUpDown nudPractical;
+        private System.Windows.Forms.NumericUpDown nudDiscipline;
+        private System.Windows.Forms.ToolStripButton tsBtnSendEvaluate;
     }
 }

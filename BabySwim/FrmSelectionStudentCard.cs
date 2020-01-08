@@ -11,6 +11,7 @@ namespace BabySwim
 {
     public partial class FrmSelectionStudentCard : XFFormEx
     {
+        private XF.BLL.Course_Evaluate bllEvaluate = new XF.BLL.Course_Evaluate();
         private XF.Model.Course_SelectionStudent model;
 
         public XF.Model.Course_SelectionStudent Model
@@ -54,7 +55,42 @@ namespace BabySwim
             {
                 model.SignType = 0;
             }
-            model.Evaluate = rtcEvaluate.ContentRtf;
+            model.Evaluate = rtcEvaluate.ContentText;
+            model.Evaluates.Clear();
+            model.Evaluates.AddRange(new List<XF.Model.Course_Evaluate>
+                        {
+                            new XF.Model.Course_Evaluate
+                            {
+                                SelectionStudentId = model.SelectionStudentID,
+                                Item = "Discipline",
+                                Score = zDataConverter.ToInt(nudDiscipline.Value),
+                                MaxScore = 10
+                            }, new XF.Model.Course_Evaluate
+                            {
+                                SelectionStudentId = model.SelectionStudentID,
+                                Item = "Practical",
+                                Score = zDataConverter.ToInt(nudPractical.Value),
+                                MaxScore = 10
+                            }, new XF.Model.Course_Evaluate
+                            {
+                                SelectionStudentId = model.SelectionStudentID,
+                                Item = "Concentration",
+                                Score = zDataConverter.ToInt(nudConcentration.Value),
+                                MaxScore = 10
+                            }, new XF.Model.Course_Evaluate
+                            {
+                                SelectionStudentId = model.SelectionStudentID,
+                                Item = "Logic",
+                                Score = zDataConverter.ToInt(nudLogic.Value),
+                                MaxScore = 10
+                            }, new XF.Model.Course_Evaluate
+                            {
+                                SelectionStudentId = model.SelectionStudentID,
+                                Item = "Communication",
+                                Score = zDataConverter.ToInt(nudCommunication.Value),
+                                MaxScore = 10
+                            }
+                        });
         }
 
         /// <summary>
@@ -64,6 +100,7 @@ namespace BabySwim
         {
             if (model != null)
             {
+                model.Evaluates = bllEvaluate.GetSelectionStudentEvaluates(model.SelectionStudentID);
                 tbCourseDate.Text = model.CourseDate.Value.ToString(MessageText.FORMAT_DATE);
                 tbClassRoom.Text = "教室" + MessageText.LIST_NUMBER_CHINESE[model.ClassroomID]; ;
                 tbLessonNO.Text = model.LessonNO.ToString();
@@ -101,7 +138,41 @@ namespace BabySwim
                         rdoNormal.Checked = true;
                         break;
                 }
-                rtcEvaluate.ContentRtf = model.Evaluate;
+                rtcEvaluate.ContentText = model.Evaluate;
+                if (model.Evaluates.Count == 0)
+                {
+                    nudDiscipline.Value = 10;
+                    nudPractical.Value = 10;
+                    nudConcentration.Value = 10;
+                    nudLogic.Value = 10;
+                    nudCommunication.Value = 10;
+                }
+                else
+                {
+                    foreach (XF.Model.Course_Evaluate evaluate in model.Evaluates)
+                    {
+                        if (evaluate.Item.Equals("Discipline"))
+                        {
+                            nudDiscipline.Value = evaluate.Score;
+                        }
+                        else if (evaluate.Item.Equals("Practical"))
+                        {
+                            nudPractical.Value = evaluate.Score;
+                        }
+                        else if (evaluate.Item.Equals("Concentration"))
+                        {
+                            nudConcentration.Value = evaluate.Score;
+                        }
+                        else if (evaluate.Item.Equals("Logic"))
+                        {
+                            nudLogic.Value = evaluate.Score;
+                        }
+                        else if (evaluate.Item.Equals("Communication"))
+                        {
+                            nudCommunication.Value = evaluate.Score;
+                        }
+                    }
+                }
             }
         }
 

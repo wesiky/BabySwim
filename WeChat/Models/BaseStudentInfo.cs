@@ -28,5 +28,22 @@ namespace WeChat.Models
 		public int? Progress { get; set; }
 
 		public int FamilyID { get; set; }
+
+		[ForeignKey("FamilyID")]
+		public virtual BaseFamily Family { get; set; }
+
+		[ForeignKey("CourseID")]
+		public virtual BaseCourse Course { get; set; }
+
+		[ForeignKey("StudentID")]
+		public virtual BaseStudent Student { get; set; }
+
+		[ForeignKey("TeacherID")]
+		public virtual BaseTeacher Teacher { get; set; }
+
+		[ForeignKey("AdviserID")]
+		public virtual BaseTeacher Adviser { get; set; }
+
+		public virtual ICollection<CourseSelectionStudent> SelectionStudents { get; set; }
 	}
 }

@@ -51,6 +51,7 @@
     <Compile Include="Base_Student.cs" />
     <Compile Include="Base_Teacher.cs" />
     <Compile Include="Course_ConfirmedStudent.cs" />
+    <Compile Include="Course_Evaluate.cs" />
     <Compile Include="Course_Scheduler.cs" />
     <Compile Include="Course_Selection.cs" />
     <Compile Include="Course_SelectionStudent.cs" />

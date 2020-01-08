@@ -23,13 +23,7 @@ function LoginSys() {
         function (data) {
 
             if (data.resultCode == "0") {
-                var url = getQueryString("url");//可配置个人主页
-                if (url != null) {
-                    window.location = url;
-                }
-                else {
-                    window.location = "/Home/Privacy"
-                }
+                    window.location = "/BindSuccess"
             } else {
                 d = new Date();
                 $("#mes").html(data.resultMsg);

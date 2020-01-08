@@ -27,6 +27,9 @@ namespace WeChat.Models
 		public DateTime? VisitDate { get; set; }
 
 		public int Age { get; set; }
+
+		[ForeignKey("StudentID")]
+		public virtual BaseStudent Student { get; set; }
 	}
 }
 

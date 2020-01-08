@@ -16,5 +16,6 @@ namespace Enums
         public static Color TextForeColor = ColorTranslator.FromHtml(TextForeColorName);//标题颜色
         public static string TryOutCourseID = ConfigurationManager.AppSettings["TryOutCourseID"];//试听课ID
         public static string EvaluateFilePath = ConfigurationManager.AppSettings["EvaluateFilePath"];//评价文件目录
+        public static string ApiUrl = ConfigurationManager.AppSettings["ApiUrl"];//Api地址
     }
 }

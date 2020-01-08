@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace WeChat.MessageTemplate
 {
-    public class EvaluationMessage : TemplateMessageBase
+    public class CourseReminderMessage : TemplateMessageBase
     {
         public TemplateDataItem first { get; set; }
         public TemplateDataItem keyword1 { get; set; }
         public TemplateDataItem keyword2 { get; set; }
         public TemplateDataItem remark { get; set; }
 
-        public TemplateDataItem url { get; set; } = new TemplateDataItem("http://www.yqhaba.com");
+        public TemplateDataItem url { get; set; }
 
         /// <summary>
-        /// “订单支付成功通知”模板消息数据定义 构造函数
+        /// “课程提醒”模板消息数据定义 构造函数
         /// </summary>
         /// <param name="_first">first.Data头部信息</param>
         /// <param name="userName">用户名</param>
@@ -27,7 +27,7 @@ namespace WeChat.MessageTemplate
         /// <param name="_remark">remark.Data备注</param>
         /// <param name="url"></param>
         /// <param name="templateId"></param>
-        public EvaluationMessage(string _first, string _courseName,
+        public CourseReminderMessage(string _first, string _courseName,
             string _userName,
             string _remark,
             string templateId = "Njb6PJu047ZGjXiYdy-Gj4ICFkHWBPDfXur9Y0Ll2Ec",

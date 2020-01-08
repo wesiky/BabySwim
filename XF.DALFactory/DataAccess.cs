@@ -221,5 +221,16 @@ namespace XF.DALFactory
             object objType = CreateObject(AssemblyPath, ClassNamespace);
             return (XF.IDAL.ICourse_ConfirmedStudent)objType;
         }
+
+        /// <summary>
+        /// 创建CreateCourse_Evaluate数据层接口。
+        /// </summary>
+        public static XF.IDAL.ICourse_Evaluate CreateCourse_Evaluate()
+        {
+
+            string ClassNamespace = AssemblyPath + ".Course_Evaluate";
+            object objType = CreateObject(AssemblyPath, ClassNamespace);
+            return (XF.IDAL.ICourse_Evaluate)objType;
+        }
     }
 }

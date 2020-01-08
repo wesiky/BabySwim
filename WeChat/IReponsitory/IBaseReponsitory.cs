@@ -95,6 +95,10 @@ namespace WeChat.IReponsitory
         /// <returns></returns>
         Task<int> ExecuteSqlCommandAsync(string sql);
 
+        IQueryable<T> FromSqlRaw(string sql);
+
+        IQueryable<T> FromSqlRaw(string sql, params object[] paras);
+
         #endregion
 
         bool IsExist(object id);

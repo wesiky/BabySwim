@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Assistant.cs" />
     <Compile Include="BarcodeHelper.cs" />
+    <Compile Include="BaseResult.cs" />
     <Compile Include="CommonEnum.cs" />
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="DataCache.cs" />

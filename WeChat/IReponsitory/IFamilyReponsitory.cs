@@ -10,6 +10,6 @@ namespace WeChat.IReponsitory
 {
     public interface IFamilyReponsitory : IBaseReponsitory<BaseFamily>
     {
-        
+        BaseFamily GetFamily(string openId);
     }
 }

@@ -672,15 +672,30 @@ namespace XF.SQLServerDAL
         /// <summary>
         /// 获取更新评价数据SQL
         /// </summary>
-        public string GetUpdateEvaluateSql(int selectionStudentID, string evaluateFilePath)
+        public string GetUpdateEvaluateSql(XF.Model.Course_SelectionStudent selectionStudent)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update Course_SelectionStudent set ");
-            strSql.Append("Description = '");
-            strSql.Append(evaluateFilePath);
+            strSql.Append("Evaluation = '");
+            strSql.Append(selectionStudent.Evaluate);
             strSql.Append("' where SelectionStudentID = ");
-            strSql.Append(selectionStudentID);
+            strSql.Append(selectionStudent.SelectionStudentID);
             strSql.Append(";");
+            strSql.Append("delete from Course_Evaluate where SelectionStudentId = ");
+            strSql.Append(selectionStudent.SelectionStudentID);
+            strSql.Append(";");
+            foreach(XF.Model.Course_Evaluate evaluate in selectionStudent.Evaluates)
+            {
+                strSql.Append("insert into Course_Evaluate(SelectionStudentId, Item, Score, MaxScore) values(");
+                strSql.Append(selectionStudent.SelectionStudentID);
+                strSql.Append(",'");
+                strSql.Append(evaluate.Item);
+                strSql.Append("',");
+                strSql.Append(evaluate.Score);
+                strSql.Append(",");
+                strSql.Append(evaluate.MaxScore);
+                strSql.Append("); ");
+            }
             return strSql.ToString();
         }
 

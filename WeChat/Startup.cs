@@ -14,6 +14,11 @@ using Senparc.Weixin.Entities;
 using Microsoft.Extensions.Options;
 using Autofac;
 using System.Reflection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Quartz;
+using Quartz.Impl;
+using Autofac.Extensions.DependencyInjection;
+using WeChat.Quartz;
 
 namespace WeChat
 {
@@ -33,9 +38,11 @@ namespace WeChat
             services.AddControllersWithViews()
                     //使用autofac所需
                     .AddControllersAsServices();
+
             services.AddDistributedMemoryCache();
             services.AddDbContext<WeChatContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("WeChatContext")));
+
 
             /*
              * CO2NET 是从 Senparc.Weixin 分离的底层公共基础模块，经过了长达 6 年的迭代优化，稳定可靠。
@@ -45,6 +52,11 @@ namespace WeChat
 
             services.AddSenparcGlobalServices(Configuration)//Senparc.CO2NET 全局注册
                     .AddSenparcWeixinServices(Configuration);//Senparc.Weixin 注册
+
+            //services.AddSingleton<ScheduleCenter>();
+
+            //quartz
+            services.AddJobService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -90,6 +102,8 @@ namespace WeChat
 
             //全局只需注册一次
             AccessTokenContainer.RegisterAsync(Senparc.Weixin.Config.SenparcWeixinSetting.WeixinAppId, Senparc.Weixin.Config.SenparcWeixinSetting.WeixinAppSecret);
+
+            JobServiceExtensions.RegisterJobs();
         }
 
         /// <summary>

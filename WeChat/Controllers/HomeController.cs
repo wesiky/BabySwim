@@ -21,6 +21,8 @@ using System.Threading.Tasks;
 using WeChat.Models;
 using WeChat.IServices;
 using WeChat.Models.Result;
+using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace WeChat.Controllers
 {
@@ -33,11 +35,15 @@ namespace WeChat.Controllers
 
         readonly Func<string> _getRandomFileName = () => SystemTime.Now.ToString("yyyyMMdd-HHmmss") + "_Async_" + Guid.NewGuid().ToString("n").Substring(0, 6);
 
-        public IFamilyService _familyService;
+        public IWeChatService _weChatService;
 
-        public HomeController(IFamilyService familyService)
+        private readonly ILogger<HomeController> _logger;
+
+
+        public HomeController(IWeChatService weChatService, ILogger<HomeController> logger)
         {
-            _familyService = familyService;
+            _weChatService = weChatService;
+            _logger = logger;
         }
 
         /// <summary>
@@ -49,10 +55,12 @@ namespace WeChat.Controllers
         {
             if (CheckSignature.Check(signature, timestamp, nonce, Token))
             {
+                _logger.LogInformation("微信验证通过");
                 return Content(echostr); //返回随机字符串则表示验证通过
             }
             else
             {
+                _logger.LogInformation("微信验证未通过");
                 return Content("failed:" + signature + "," + CheckSignature.GetSignature(timestamp, nonce, Token) + "。" +
                     "如果你在浏览器中看到这句话，说明此地址可以被作为微信公众账号后台的Url，请注意保持Token一致。");
             }
@@ -67,6 +75,7 @@ namespace WeChat.Controllers
         [ActionName("Index")]
         public ActionResult Post(string signature, string timestamp, string nonce)
         {
+            _logger.LogInformation("微信请求");
             /* 异步请求请见 WeixinAsyncController（推荐） */
 
             if (!CheckSignature.Check(signature, timestamp, nonce, Token))
@@ -146,44 +155,96 @@ namespace WeChat.Controllers
             }
         }
 
-        [Route("InitMenu")]
-        public ActionResult InitMenu()
+        //[Route("InitMenu")]
+        //public ActionResult InitMenu()
+        //{
+        //    var accessToken = AccessTokenContainer.GetAccessTokenAsync(AppId);
+        //    ButtonGroup bg = new ButtonGroup();
+        //    bg.button.Add(new SingleViewButton
+        //    {
+        //        name = "会员绑定",
+        //        url = "http://www.yqhaba.com/Jump?returnUrl=" + "BindUser".UrlDecode(),
+        //        type = MenuButtonType.view.ToString()
+        //    }); 
+        //    bg.button.Add(new SingleViewButton
+        //    {
+        //        name = "课程请假",
+        //        url = "http://www.yqhaba.com/Jump?returnUrl=" + "LeaveNote".UrlDecode(),
+        //        type = MenuButtonType.view.ToString()
+        //    });
+        //    var result = CommonApi.CreateMenu(accessToken.Result, bg);
+        //    return Content(result.ToString());
+        //}
+
+        #region 评价推送
+        [Route("SendEvaluate")]
+        public JsonResult SendEvaluate(string openId, int selectionStudentId)
         {
-            var accessToken = AccessTokenContainer.GetAccessTokenAsync(AppId);
-            ButtonGroup bg = new ButtonGroup();
-            bg.button.Add(new SingleViewButton
+            _logger.LogInformation("发送课程评价");
+            BaseResult result = new BaseResult();
+            CourseSelectionStudent selectionStudent = _weChatService.GetSelectionStudent(selectionStudentId);
+            if (selectionStudent == null)
             {
-                name = "会员绑定",
-                url = "http://www.yqhaba.com/Jump?returnUrl=" + "BindUser".UrlDecode(),
-                type = MenuButtonType.view.ToString()
-            }); 
-            bg.button.Add(new SingleViewButton
+                //选课记录不存在
+                result.ResultCode = (int)CommonTips.UNKNOW_SELECTIONSTUDENT;
+                result.ResultMsg = result.ResultCode.ToEnumDescriptionString(typeof(CommonTips));
+                return Json(result);
+            }
+            if (selectionStudent.StudentInfo == null)
             {
-                name = "课程请假",
-                url = "http://www.yqhaba.com/Jump?returnUrl=" + "LeaveNote".UrlDecode(),
-                type = MenuButtonType.view.ToString()
-            });
-            var result = CommonApi.CreateMenu(accessToken.Result, bg);
-            return Content(result.ToString());
+                //学员信息不存在
+                result.ResultCode = (int)CommonTips.UNKNOW_STUDENTINFO;
+                result.ResultMsg = result.ResultCode.ToEnumDescriptionString(typeof(CommonTips));
+                return Json(result);
+            }
+            if (selectionStudent.StudentInfo.Family == null)
+            {
+                //家长信息不存在
+                result.ResultCode = (int)CommonTips.UNKNOW_FAMILY;
+                result.ResultMsg = result.ResultCode.ToEnumDescriptionString(typeof(CommonTips));
+                return Json(result);
+            }
+            if (selectionStudent.Selection == null)
+            {
+                //排课记录不存在
+                result.ResultCode = (int)CommonTips.UNKNOW_SELECTION;
+                result.ResultMsg = result.ResultCode.ToEnumDescriptionString(typeof(CommonTips));
+                return Json(result);
+            }
+            //openid不一致，说明为异常请求，不执行删除
+            if (string.IsNullOrEmpty(selectionStudent.StudentInfo.Family.OpenId))
+            {
+                result.ResultCode = (int)CommonTips.FAMILY_UNBIND;
+                result.ResultMsg = result.ResultCode.ToEnumDescriptionString(typeof(CommonTips));
+                return Json(result);
+            }
+            if (!openId.Equals(selectionStudent.StudentInfo.Family.OpenId))
+            {
+                result.ResultCode = (int)CommonTips.UNKNOW_OPTION;
+                result.ResultMsg = result.ResultCode.ToEnumDescriptionString(typeof(CommonTips));
+                return Json(result);
+            }
+            var data = new CourseEvaluateMessage(
+                "课程评价", selectionStudent.StudentInfo.Student.StudentName, selectionStudent.Selection.Course.CourseName, selectionStudent.Selection.Teacher.TeacherName,
+                "更详细信息，请咨询HABA乐清中心", "http://www.yqhaba.com/Evaluate?selectionStudentId=" + selectionStudent.SelectionStudentID);
+
+            var resultApi = TemplateApi.SendTemplateMessageAsync(AppId, openId, data);
+            
+            return Json(new BaseResult((int)resultApi.Result.errcode, resultApi.Result.errmsg));
         }
 
-        [Route("SendTemplateMessage")]
-        public ActionResult SendTemplateMessage()
+        [Route("Evaluate")]
+        public ActionResult Evaluate(int selectionStudentId)
         {
-            var openId = "oeihwwrTgDdxkk3bS_pjO-OVPAzk";//消息目标用户的OpenId
-
-            var data = new EvaluationMessage(
-                "课程提醒", "体验课", "张三",
-                "更详细信息，请咨询HABA乐清中心");
-
-            var result = TemplateApi.SendTemplateMessageAsync(AppId, openId, data);
-
-            return Content("发送成功");
+            return View("BindSuccess");
         }
+
+        #endregion
 
         [Route("Jump")]
         public ActionResult Jump(string returnUrl)
         {
+            _logger.LogInformation("微信跳转：" + returnUrl);
             var state = "XFramework-" + SystemTime.Now.Millisecond;//随机数，用于识别请求可靠性
             HttpContext.Session.SetString("State", state);//储存随机数到Session
             string url = string.Empty;
@@ -204,6 +265,7 @@ namespace WeChat.Controllers
         [Route("BindUser")]
         public ActionResult BindUser(string code, string state, string returnUrl)
         {
+            _logger.LogInformation("微信用户绑定");
             try
             {
                 if (string.IsNullOrEmpty(code))
@@ -240,8 +302,9 @@ namespace WeChat.Controllers
         [HttpPost, Route("Bind")]
         public async Task<JsonResult> BindAsync(string familyCode, string familyName)
         {
+            _logger.LogInformation("微信用户绑定处理");
             BaseResult result = new BaseResult();
-            BaseFamily family = _familyService.GetFamily(familyCode, familyName);
+            BaseFamily family = _weChatService.GetFamily(familyCode, familyName);
             if (family == null)
             {
                 result.ResultCode = (int)CommonTips.FAMILY_UNEXIST;
@@ -250,7 +313,7 @@ namespace WeChat.Controllers
             else
             {
                 family.OpenId = HttpContext.Session.GetString("OpenId");
-                _familyService.Bind(family);
+                _weChatService.Bind(family);
             }
             return Json(result);
         }
@@ -258,6 +321,7 @@ namespace WeChat.Controllers
         [Route("BindSuccess")]
         public ActionResult BindSuccess()
         {
+            _logger.LogInformation("微信用户绑定成功");
             return View("BindSuccess");
         }
         #endregion
@@ -266,9 +330,7 @@ namespace WeChat.Controllers
         [Route("LeaveNote")]
         public ActionResult LeaveNote(string code, string state, string returnUrl)
         {
-            //test
-
-
+            _logger.LogInformation("课程请假");
             try
             {
                 if (string.IsNullOrEmpty(code))
@@ -291,8 +353,8 @@ namespace WeChat.Controllers
                     return Content("错误：" + result.errmsg);
                 }
                 HttpContext.Session.SetString("OpenId", result.openid);
-
-                return View("LeaveNote");
+                List<CourseSelectionStudent> models = _weChatService.GetSelectionStudent(result.openid);
+                return View("LeaveNote", models);
             }
             catch (Exception ex)
             {
@@ -300,7 +362,25 @@ namespace WeChat.Controllers
                 return Content("发生错误：" + ex.ToString());
             }
         }
+
+        public IActionResult Leave(int id)
+        {
+            _logger.LogInformation("微信用户请假处理");
+            string openId = HttpContext.Session.GetString("OpenId");
+            if (string.IsNullOrEmpty(openId))
+            {
+                return Content("非法操作");
+            }
+
+            BaseResult result = _weChatService.CancelSelectionStudent(id, openId);
+            if (result.ResultCode != 0)
+            {
+                return Content(result.ResultMsg);
+            }
+            return Redirect("http://www.yqhaba.com/Jump?returnUrl=" + "LeaveNote".UrlDecode());
+        }
         #endregion
+
         ///// <summary>
         ///// 最简化的处理流程（不加密）
         ///// </summary>

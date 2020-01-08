@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAssist_Notice.cs" />
+    <Compile Include="ICourse_Evaluate.cs" />
     <Compile Include="IBase_Course.cs" />
     <Compile Include="IBase_Customer.cs" />
     <Compile Include="IBase_Family.cs" />

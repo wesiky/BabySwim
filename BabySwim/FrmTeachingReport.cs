@@ -70,7 +70,7 @@ namespace BabySwim
         private void Init()
         {
             ColTotle.Tag = -1;
-            List<XF.Model.BaseCourse> courses = bllCourse.GetModelList(string.Empty);
+            List<XF.Model.Base_Course> courses = bllCourse.GetModelList(string.Empty);
             for(int i=0;i<courses.Count;i++)
             {
                 //增加显示列

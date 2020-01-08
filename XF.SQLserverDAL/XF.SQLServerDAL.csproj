@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="ArrayList.cs" />
     <Compile Include="Assist_Notice.cs" />
+    <Compile Include="Course_Evaluate.cs" />
     <Compile Include="Base_Course.cs" />
     <Compile Include="Base_Customer.cs" />
     <Compile Include="Base_Family.cs" />

@@ -39,6 +39,16 @@ namespace WeChat.Models
 
 		public bool Enable { get; set; }
 
+		[ForeignKey("CourseID")]
+		public virtual BaseCourse Course { get; set; }
+
+		[ForeignKey("TeacherID")]
+		public virtual BaseTeacher Teacher { get; set; }
+
+		[ForeignKey("AdviserID")]
+		public virtual BaseTeacher Adviser { get; set; }
+
+		public virtual ICollection<CourseSelectionStudent> SelectionStudents { get; set; }
 	}
 }
 

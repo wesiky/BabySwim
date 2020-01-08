@@ -32,6 +32,11 @@ namespace WeChat.Models
 
 		public bool Enable { get; set; }
 
+		[ForeignKey("StudentID")]
+		public virtual BaseStudentInfo StudentInfo { get; set; }
+
+		[ForeignKey("SelectionID")]
+		public virtual CourseSelection Selection { get; set; }
 	}
 }
 

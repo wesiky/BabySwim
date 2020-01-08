@@ -27,7 +27,6 @@ namespace WeChat.Models
 		public bool Enable { get; set; }
 
 		public int StudentType { get; set; }
-
 	}
 }
 

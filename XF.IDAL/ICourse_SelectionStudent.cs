@@ -78,7 +78,7 @@ namespace XF.IDAL
         /// <summary>
         /// 获取增加数据SQL
         /// </summary>
-        string GetUpdateEvaluateSql(int selectionStudentID, string evaluateFilePath);
+        string GetUpdateEvaluateSql(XF.Model.Course_SelectionStudent selectionStudent);
 
         /// <summary>
         /// 获取分页数据

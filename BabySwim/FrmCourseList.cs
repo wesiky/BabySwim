@@ -133,10 +133,10 @@ namespace BabySwim
         {
             string result = string.Empty;
             List<int> successRowIndex = new List<int>();
-            XF.Model.BaseCourse model;
+            XF.Model.Base_Course model;
             foreach (int index in lstInsert)
             {
-                model = new XF.Model.BaseCourse();
+                model = new XF.Model.Base_Course();
                 model.CourseName = zDataConverter.ToString(xfDataGridView1.Rows[index].Cells[ColName.Name].Value);
                 model.MaxCount = zDataConverter.ToInt(xfDataGridView1.Rows[index].Cells[ColMaxCount.Name].Value);
                 model.MaxSection = zDataConverter.ToInt(xfDataGridView1.Rows[index].Cells[ColMaxSection.Name].Value);
@@ -168,10 +168,10 @@ namespace BabySwim
         {
             string result = string.Empty;
             List<int> successRowIndex = new List<int>();
-            XF.Model.BaseCourse model;
+            XF.Model.Base_Course model;
             foreach (int index in lstUpdate)
             {
-                model = new XF.Model.BaseCourse();
+                model = new XF.Model.Base_Course();
                 model.CourseID = zDataConverter.ToInt(xfDataGridView1.Rows[index].Cells[ColID.Name].Value);
                 model.CourseName = zDataConverter.ToString(xfDataGridView1.Rows[index].Cells[ColName.Name].Value);
                 model.MaxCount = zDataConverter.ToInt(xfDataGridView1.Rows[index].Cells[ColMaxCount.Name].Value);
@@ -269,9 +269,9 @@ namespace BabySwim
         private void BindData()
         {
             string strWhere = string.Empty;
-            List<XF.Model.BaseCourse> models = bll.GetModelList(strWhere);
+            List<XF.Model.Base_Course> models = bll.GetModelList(strWhere);
             xfDataGridView1.Rows.Clear();
-            foreach (XF.Model.BaseCourse model in models)
+            foreach (XF.Model.Base_Course model in models)
             {
                 int count = xfDataGridView1.Rows.Count;
                 xfDataGridView1.Rows.Add();

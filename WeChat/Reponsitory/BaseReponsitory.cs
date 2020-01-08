@@ -347,6 +347,25 @@ namespace WeChat.Reponsitory
             return db.Database.ExecuteSqlRawAsync(sql);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public IQueryable<T> FromSqlRaw(string sql)
+        {
+            return db.Set<T>().FromSqlRaw(sql).AsQueryable(); ;
+        }
+        /// <summary>
+        /// 查询一条语句返回结果集
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public IQueryable<T> FromSqlRaw(string sql, params object[] paras)
+        {
+            return db.Set<T>().FromSqlRaw<T>(sql, paras).AsQueryable();
+        }
+
         #endregion
 
         public bool IsExist(object id)

@@ -23,11 +23,11 @@ namespace XF.IDAL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		int Add(XF.Model.BaseCourse model);
+		int Add(XF.Model.Base_Course model);
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		bool Update(XF.Model.BaseCourse model);
+		bool Update(XF.Model.Base_Course model);
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
@@ -36,8 +36,8 @@ namespace XF.IDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		XF.Model.BaseCourse GetModel(int CourseID);
-		XF.Model.BaseCourse DataRowToModel(DataRow row);
+		XF.Model.Base_Course GetModel(int CourseID);
+		XF.Model.Base_Course DataRowToModel(DataRow row);
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>

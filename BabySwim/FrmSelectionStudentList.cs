@@ -161,30 +161,13 @@ namespace BabySwim
                     string evaluateFilePath = ConfigSetting.EvaluateFilePath + frmSelectionStudentCard.Model.SelectionStudentID.ToString() + ".txt";
                     //更新评价
                     ArrayList lstSql = new ArrayList();
-                    lstSql.Add(bll.GetUpdateEvaluateSql(frmSelectionStudentCard.Model.SelectionStudentID, evaluateFilePath));
+                    lstSql.Add(bll.GetUpdateEvaluateSql(frmSelectionStudentCard.Model));
                     lstSql.Add(bll.GetUpdateSignTypeSql(frmSelectionStudentCard.Model.SelectionStudentID, signType, frmSelectionStudentCard.Model.SignType, courseID, sectionNO, teacherID));
                     if (!bllSys.ExecuteSqlTran(lstSql))
                     {
                         QQMessageBox.Show(this, MessageText.SQL_ERROR_SELECTIONSTUDENT_UPDATE, MessageText.MESSAGEBOX_CAPTION_ERROR, QQMessageBoxIcon.Error, QQMessageBoxButtons.OK);
                         return;
                     }
-                    //保存评价内容文件
-                    //创建评价文件
-                    FileStream fs;
-                    if (File.Exists(evaluateFilePath))
-                    {
-                        fs = new FileStream(evaluateFilePath, FileMode.Truncate);
-                        fs.Close();
-                    }
-                    fs = new FileStream(evaluateFilePath, FileMode.OpenOrCreate);
-                    StreamWriter sw = new StreamWriter(fs);
-                    //开始写入
-                    sw.Write(frmSelectionStudentCard.Model.Evaluate);
-                    //清空缓冲区
-                    sw.Flush();
-                    //关闭流
-                    sw.Close();
-                    fs.Close();
                     QQMessageBox.Show(this, MessageText.TIP_SUCCESS_SAVE, MessageText.MESSAGEBOX_CAPTION_TIP, QQMessageBoxIcon.Information, QQMessageBoxButtons.OK);
                     BindData();
                 }

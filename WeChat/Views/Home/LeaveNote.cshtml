@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BaseFamily>
+﻿@model IEnumerable<WeChat.Models.CourseSelectionStudent>
 @{
     Layout = null;
 }
@@ -8,8 +8,49 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>LeaveNote</title>
+    <title>课程请假</title>
 </head>
 <body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    课程名称
+                </th>
+                <th>
+                    课程日期
+                </th>
+                <th>
+                    时间
+                </th>
+                <th>
+                    学员
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @item.Selection.Course.CourseName
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Selection.CourseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Selection.LessonNO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentInfo.NickName)
+                </td>
+                <td>
+                    <a asp-action="Leave" asp-route-id="@item.SelectionStudentID">取消课程</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
 </body>
 </html>

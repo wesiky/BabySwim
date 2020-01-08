@@ -52,34 +52,13 @@ namespace BabySwim
                     ArrayList lstSql = new ArrayList();
                     foreach (XF.Model.Course_SelectionStudent student in model.SelectionStudents)
                     {
-                        string evaluateFilePath = ConfigSetting.EvaluateFilePath + student.SelectionStudentID.ToString() + ".txt";
-                        lstSql.Add(bllStudent.GetUpdateEvaluateSql(student.SelectionStudentID, evaluateFilePath));
+                        lstSql.Add(bllStudent.GetUpdateEvaluateSql(student));
+
                     }
                     if (!bllSys.ExecuteSqlTran(lstSql))
                     {
                         QQMessageBox.Show(this, MessageText.SQL_ERROR_SELECTIONSTUDENT_EVALUATE_SAVE, MessageText.MESSAGEBOX_CAPTION_ERROR, QQMessageBoxIcon.Error, QQMessageBoxButtons.OK);
                         return;
-                    }
-                    //保存评价内容文件
-                    //创建评价文件
-                    foreach (XF.Model.Course_SelectionStudent student in model.SelectionStudents)
-                    {
-                        FileStream fs;
-                        string evaluateFilePath = ConfigSetting.EvaluateFilePath + student.SelectionStudentID.ToString() + ".txt";
-                        if (File.Exists(evaluateFilePath))
-                        {
-                            fs = new FileStream(evaluateFilePath, FileMode.Truncate);
-                            fs.Close();
-                        }
-                        fs = new FileStream(evaluateFilePath, FileMode.OpenOrCreate);
-                        StreamWriter sw = new StreamWriter(fs);
-                        //开始写入
-                        sw.Write(student.Evaluate);
-                        //清空缓冲区
-                        sw.Flush();
-                        //关闭流
-                        sw.Close();
-                        fs.Close();
                     }
                     QQMessageBox.Show(this, MessageText.TIP_SUCCESS_SAVE, MessageText.MESSAGEBOX_CAPTION_TIP, QQMessageBoxIcon.Information, QQMessageBoxButtons.OK);
                 }
