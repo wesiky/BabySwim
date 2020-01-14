@@ -4,31 +4,69 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>课程请假</title>
+    <style type="text/css">
+
+        body {
+            padding: 10px;
+            margin: 0;
+        }
+
+        td {
+            height: 50px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .table {
+            width: 100%;
+            font-size: .2rem;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .del-btn {
+            background: red;
+            color: #fff;
+            border-radius: 2px;
+            padding: 4px 0;
+            display:block;
+            text-decoration:none;
+        }
+    </style>
+    <script type="text/javascript">
+        (function () {
+            var docEl = document.documentElement;
+            var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+            var recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 640) {
+                        docEl.style.fontSize = '100px';
+                    } else{
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+            if (!document.addEventListener) return;
+            window.addEventListener(resizeEvt, recalc, false);
+            document.addEventListener('DOMContentLoaded', recalc, false);
+            recalc();
+        })()
+    </script>
 </head>
 <body>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    课程名称
-                </th>
-                <th>
-                    课程日期
-                </th>
-                <th>
-                    时间
-                </th>
-                <th>
-                    学员
-                </th>
-                <th></th>
-            </tr>
-        </thead>
+	<table class="table" id="myTable" border="0" cellpadding="0" cellspacing="0">
+		<thead>
+			<tr>
+				<th style="width: 20%">课程名称</th>
+				<th style="width: 30%">课程日期</th>
+				<th style="width: 18%">时间</th>
+				<th style="width: 15%">学员</th>
+				<th style="width: 17%">操作</th>
+			</tr>
+		</thead>
         <tbody>
             @foreach (var item in Model)
             {
@@ -37,20 +75,43 @@
                     @item.Selection.Course.CourseName
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Selection.CourseDate)
+                    @(item.Selection.CourseDate.ToString("yyyy-MM-dd"))
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Selection.LessonNO)
-                </td>
+                @{
+                    switch (item.Selection.LessonNO)
+                    {
+                        case 0:
+                            <td>9:30</td>
+                            break;
+                        case 1:
+                            <td>10:30</td>
+                            break;
+                        case 2:
+                            <td>,14:30</td>
+                            break;
+                        case 3:
+                            <td>15:30</td>
+                            break;
+                        case 4:
+                            <td>16:30</td>
+                            break;
+                        case 5:
+                            <td>18:10</td>
+                            break;
+                        case 6:
+                            <td>19:10</td>
+                            break;
+                    }
+                }
                 <td>
                     @Html.DisplayFor(modelItem => item.StudentInfo.NickName)
                 </td>
                 <td>
-                    <a asp-action="Leave" asp-route-id="@item.SelectionStudentID">取消课程</a>
+                    <a asp-action="Leave" asp-route-id="@item.SelectionStudentID" class="del-btn">取消课程</a>
                 </td>
             </tr>
             }
         </tbody>
-    </table>
+	</table>
 </body>
 </html>

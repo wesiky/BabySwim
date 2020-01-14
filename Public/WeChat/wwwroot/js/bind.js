@@ -2,22 +2,25 @@
     $("#LoginSys").click(function () {
         LoginSys();
     });
+    $("#dia-btn").click(function () {
+        var dialog = document.querySelector("dialog");
+        dialog.close();
+    });
 });
 function LoginSys() {
-    $("#mes").html("");
+    var dialog = document.querySelector("dialog");
     $("#FamilyCode").removeClass("input-validation-error");
     $("#FamilyName").removeClass("input-validation-error");
     if ($.trim($("#FamilyCode").val()) == "") {
-        $("#FamilyCode").addClass("input-validation-error").focus();
-        $("#mes").html("家长编号不能为空！");
+        document.querySelector('#tip').innerHTML = "家长编号不能为空！"
+        dialog.show();
         return;
     }
     if ($.trim($("#FamilyName").val()) == "") {
-        $("#FamilyName").addClass("input-validation-error").focus();
-        $("#mes").html("家长姓名不能为空！");
+        document.querySelector('#tip').innerHTML = "家长编号不能为空！"
+        dialog.show();
         return;
     }
-    $("#Loading").show();
     //---------------------------------------------------------------------
     $.post('/Bind', { familyCode: $("#FamilyCode").val(), familyName: $("#FamilyName").val()},
         function (data) {
@@ -25,10 +28,9 @@ function LoginSys() {
             if (data.resultCode == "0") {
                     window.location = "/BindSuccess"
             } else {
-                d = new Date();
-                $("#mes").html(data.resultMsg);
+                document.querySelector('#tip').innerHTML = data.resultMsg
+                dialog.show();
             }
-            $("#Loading").hide();
         }, "json");
     return false;
 }

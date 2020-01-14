@@ -22,6 +22,8 @@ namespace WeChat.Reponsitory
                 .Include(a => a.Selection).ThenInclude(a => a.SelectionStudents)
                 .Include(a => a.StudentInfo).ThenInclude(a => a.Family)
                 .Include(a => a.Selection).ThenInclude(a => a.Course)
+                .Include(a => a.Selection).ThenInclude(a => a.Teacher)
+                .Include(a => a.Evaluates)
                 .Where(whereLambda);
         }
 
@@ -33,6 +35,7 @@ namespace WeChat.Reponsitory
                 .Include(a => a.StudentInfo).ThenInclude(a => a.Student)
                 .Include(a => a.Selection).ThenInclude(a => a.Course)
                 .Include(a => a.Selection).ThenInclude(a => a.Teacher)
+                .Include(a => a.Evaluates)
                 .FirstOrDefault(a => a.SelectionStudentID == id);
         }
     }

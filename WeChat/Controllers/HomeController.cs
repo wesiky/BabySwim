@@ -236,7 +236,45 @@ namespace WeChat.Controllers
         [Route("Evaluate")]
         public ActionResult Evaluate(int selectionStudentId)
         {
-            return View("BindSuccess");
+            _logger.LogInformation("查看课程评价");
+            BaseResult result = new BaseResult();
+            CourseSelectionStudent selectionStudent = _weChatService.GetSelectionStudent(selectionStudentId);
+            if (selectionStudent == null)
+            {
+                //选课记录不存在
+                result.ResultCode = (int)CommonTips.UNKNOW_SELECTIONSTUDENT;
+                result.ResultMsg = result.ResultCode.ToEnumDescriptionString(typeof(CommonTips));
+                return Json(result);
+            }
+            if (selectionStudent.StudentInfo == null)
+            {
+                //学员信息不存在
+                result.ResultCode = (int)CommonTips.UNKNOW_STUDENTINFO;
+                result.ResultMsg = result.ResultCode.ToEnumDescriptionString(typeof(CommonTips));
+                return Json(result);
+            }
+            if (selectionStudent.StudentInfo.Family == null)
+            {
+                //家长信息不存在
+                result.ResultCode = (int)CommonTips.UNKNOW_FAMILY;
+                result.ResultMsg = result.ResultCode.ToEnumDescriptionString(typeof(CommonTips));
+                return Json(result);
+            }
+            if (selectionStudent.Selection == null)
+            {
+                //排课记录不存在
+                result.ResultCode = (int)CommonTips.UNKNOW_SELECTION;
+                result.ResultMsg = result.ResultCode.ToEnumDescriptionString(typeof(CommonTips));
+                return Json(result);
+            }
+            //openid不一致，说明为异常请求，不执行删除
+            if (string.IsNullOrEmpty(selectionStudent.StudentInfo.Family.OpenId))
+            {
+                result.ResultCode = (int)CommonTips.FAMILY_UNBIND;
+                result.ResultMsg = result.ResultCode.ToEnumDescriptionString(typeof(CommonTips));
+                return Json(result);
+            }
+            return View("Evaluate", selectionStudent);
         }
 
         #endregion
