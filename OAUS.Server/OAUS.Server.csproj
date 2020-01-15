@@ -144,7 +144,7 @@
       <Name>XF.BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\XF.Common\XF.Common.csproj">
-      <Project>{80F2CC40-0C44-49CB-8484-5BF047E66C2A}</Project>
+      <Project>{80f2cc40-0c44-49cb-8484-5bf047e66c2a}</Project>
       <Name>XF.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\XF.DBUtility\XF.DBUtility.csproj">
@@ -156,7 +156,7 @@
       <Name>XF.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\XF.SQLserverDAL\XF.SQLServerDAL.csproj">
-      <Project>{A9A4351C-ADB2-4D79-A35B-11971CE94531}</Project>
+      <Project>{a9a4351c-adb2-4d79-a35b-11971ce94531}</Project>
       <Name>XF.SQLServerDAL</Name>
     </ProjectReference>
   </ItemGroup>

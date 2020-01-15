@@ -122,7 +122,7 @@ namespace BabySwim
                 xfDataGridView1.Rows[count].Cells[ColTeacherID.Name].Value = model.TeacherID;
                 xfDataGridView1.Rows[count].Cells[ColTeacher.Name].Value = model.TeacherCode + "-" + model.TeacherName;
                 xfDataGridView1.Rows[count].Cells[ColSignType.Name].Value = model.SignType;
-                xfDataGridView1.Rows[count].Cells[ColDescription.Name].Value = model.Evaluate;
+                xfDataGridView1.Rows[count].Cells[ColDescription.Name].Value = model.Description;
             }
         }
 

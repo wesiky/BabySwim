@@ -11,6 +11,8 @@ using Enums;
 using XF.ExControls;
 using System.Collections;
 using System.IO;
+using System.Net;
+using Newtonsoft.Json;
 
 namespace BabySwim
 {
@@ -55,12 +57,31 @@ namespace BabySwim
                         lstSql.Add(bllStudent.GetUpdateEvaluateSql(student));
 
                     }
-                    if (!bllSys.ExecuteSqlTran(lstSql))
+                    if (bllSys.ExecuteSqlTran(lstSql))
+                    {
+                        string resultMsg = string.Empty;
+                        foreach (XF.Model.Course_SelectionStudent student in model.SelectionStudents)
+                        {
+                            BaseResult result = SendEvaluate(student.OpenId,student.SelectionStudentID);
+                            if (result.ResultCode != 0)
+                            {
+                                resultMsg += "学员" + student.StudentName + "评价推送失败：" + result.ResultMsg;
+                            }
+                        }
+                        if(resultMsg.Equals(string.Empty))
+                        {
+                            QQMessageBox.Show(this, MessageText.TIP_SUCCESS_SAVE, MessageText.MESSAGEBOX_CAPTION_TIP, QQMessageBoxIcon.Information, QQMessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            QQMessageBox.Show(this, resultMsg, MessageText.MESSAGEBOX_CAPTION_ERROR, QQMessageBoxIcon.Error, QQMessageBoxButtons.OK);
+                        }
+                    }
+                    else
                     {
                         QQMessageBox.Show(this, MessageText.SQL_ERROR_SELECTIONSTUDENT_EVALUATE_SAVE, MessageText.MESSAGEBOX_CAPTION_ERROR, QQMessageBoxIcon.Error, QQMessageBoxButtons.OK);
                         return;
                     }
-                    QQMessageBox.Show(this, MessageText.TIP_SUCCESS_SAVE, MessageText.MESSAGEBOX_CAPTION_TIP, QQMessageBoxIcon.Information, QQMessageBoxButtons.OK);
                 }
             }
         }
@@ -95,6 +116,56 @@ namespace BabySwim
         private void XfClassScheduler1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 推送评价
+        /// </summary>
+        /// <param name="openId"></param>
+        /// <param name="selectionStudentId"></param>
+        /// <returns></returns>
+        private BaseResult SendEvaluate(string openId,int selectionStudentId)
+        {
+            try
+            {
+                string url = ConfigSetting.ApiUrl + "/SendEvaluate";
+                string postDatas = "openId=" + openId + "&selectionStudentId=" + selectionStudentId;
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.Referer = "";
+                request.Accept = "Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
+                request.Headers["Accept-Language"] = "zh-CN,zh;q=0.";
+                request.Headers["Accept-Charset"] = "GBK,utf-8;q=0.7,*;q=0.3";
+                request.UserAgent = "User-Agent:Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.202 Safari/535.1";
+                request.KeepAlive = true;
+                //上面的http头看情况而定，但是下面俩必须加 
+                request.ContentType = "application/x-www-form-urlencoded";
+                Encoding encoding = Encoding.UTF8;//根据网站的编码自定义
+                request.Method = "post";  //--需要将get改为post才可行
+                string postDataStr;
+                if (postDatas != "")
+                {
+                    postDataStr = postDatas;//--需要封装,形式如“arg=arg1&arg2=arg2”
+                    byte[] postData = encoding.GetBytes(postDataStr);//postDataStr即为发送的数据，
+                    request.ContentLength = postData.Length;
+                    Stream requestStream = request.GetRequestStream();
+                    requestStream.Write(postData, 0, postData.Length);
+                }
+
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream responseStream = response.GetResponseStream();
+
+
+                StreamReader streamReader = new StreamReader(responseStream, encoding);
+                string retString = streamReader.ReadToEnd();
+                BaseResult result = JsonConvert.DeserializeObject<BaseResult>(retString);//反序列化
+                streamReader.Close();
+                responseStream.Close();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return new BaseResult(999, "推送异常,请联系管理员！异常信息：" + ex.Message);
+            }
         }
     }
 }

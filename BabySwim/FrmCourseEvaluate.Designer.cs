@@ -60,7 +60,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsBtnSure = new System.Windows.Forms.ToolStripButton();
             this.tsBtnCancel = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnSendEvaluate = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -340,7 +339,7 @@
             this.rtcEvaluate.ContentText = "";
             this.rtcEvaluate.Location = new System.Drawing.Point(280, 55);
             this.rtcEvaluate.Name = "rtcEvaluate";
-            this.rtcEvaluate.Size = new System.Drawing.Size(535, 367);
+            this.rtcEvaluate.Size = new System.Drawing.Size(535, 368);
             this.rtcEvaluate.TabIndex = 4;
             // 
             // xfDataGridView1
@@ -365,7 +364,7 @@
             this.xfDataGridView1.Name = "xfDataGridView1";
             this.xfDataGridView1.ReadOnly = true;
             this.xfDataGridView1.RowTemplate.Height = 27;
-            this.xfDataGridView1.Size = new System.Drawing.Size(275, 400);
+            this.xfDataGridView1.Size = new System.Drawing.Size(275, 401);
             this.xfDataGridView1.TabIndex = 1;
             this.xfDataGridView1.CurrentCellChanged += new System.EventHandler(this.xfDataGridView1_CurrentCellChanged);
             // 
@@ -417,8 +416,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsBtnSure,
-            this.tsBtnCancel,
-            this.tsBtnSendEvaluate});
+            this.tsBtnCancel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(815, 25);
@@ -430,8 +428,8 @@
             this.tsBtnSure.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSure.Image")));
             this.tsBtnSure.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnSure.Name = "tsBtnSure";
-            this.tsBtnSure.Size = new System.Drawing.Size(52, 22);
-            this.tsBtnSure.Text = "保存";
+            this.tsBtnSure.Size = new System.Drawing.Size(88, 22);
+            this.tsBtnSure.Text = "保存并推送";
             this.tsBtnSure.Click += new System.EventHandler(this.tsBtnSure_Click);
             // 
             // tsBtnCancel
@@ -442,15 +440,6 @@
             this.tsBtnCancel.Size = new System.Drawing.Size(52, 22);
             this.tsBtnCancel.Text = "取消";
             this.tsBtnCancel.Click += new System.EventHandler(this.tsBtnCancel_Click);
-            // 
-            // tsBtnSendEvaluate
-            // 
-            this.tsBtnSendEvaluate.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSendEvaluate.Image")));
-            this.tsBtnSendEvaluate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnSendEvaluate.Name = "tsBtnSendEvaluate";
-            this.tsBtnSendEvaluate.Size = new System.Drawing.Size(52, 22);
-            this.tsBtnSendEvaluate.Text = "推送";
-            this.tsBtnSendEvaluate.Click += new System.EventHandler(this.tsBtnSendEvaluate_Click);
             // 
             // FrmCourseEvaluate
             // 
@@ -517,6 +506,5 @@
         private System.Windows.Forms.NumericUpDown nudConcentration;
         private System.Windows.Forms.NumericUpDown nudPractical;
         private System.Windows.Forms.NumericUpDown nudDiscipline;
-        private System.Windows.Forms.ToolStripButton tsBtnSendEvaluate;
     }
 }

@@ -241,7 +241,11 @@ namespace XF.SQLServerDAL
 				{
 					model.Description=row["Description"].ToString();
 				}
-				if(row["CreateDate"]!=null && row["CreateDate"].ToString()!="")
+                if (row["Evaluation"] != null)
+                {
+                    model.Evaluation = row["Evaluation"].ToString();
+                }
+                if (row["CreateDate"]!=null && row["CreateDate"].ToString()!="")
 				{
 					model.CreateDate=DateTime.Parse(row["CreateDate"].ToString());
 				}
@@ -330,6 +334,13 @@ namespace XF.SQLServerDAL
                     if (row["Phone"] != null)
                     {
                         model.Phone = row["Phone"].ToString();
+                    }
+                }
+                if (row.Table.Columns.Contains("OpenId"))
+                {
+                    if (row["OpenId"] != null)
+                    {
+                        model.OpenId = row["OpenId"].ToString();
                     }
                 }
                 if (row.Table.Columns.Contains("TeacherID"))
@@ -677,7 +688,7 @@ namespace XF.SQLServerDAL
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update Course_SelectionStudent set ");
             strSql.Append("Evaluation = '");
-            strSql.Append(selectionStudent.Evaluate);
+            strSql.Append(selectionStudent.Evaluation);
             strSql.Append("' where SelectionStudentID = ");
             strSql.Append(selectionStudent.SelectionStudentID);
             strSql.Append(";");

@@ -595,3 +595,15 @@
 2020-01-14 15:24:23.7716 Info Adding target FileTarget(Name=ownFile-web)
 2020-01-14 15:24:23.7716 Info Closing old configuration.
 2020-01-14 15:24:23.7935 Info Found 45 configuration items
+2020-01-15 09:57:30.1154 Info Message Template Auto Format enabled
+2020-01-15 09:57:30.1391 Info Loading assembly: NLog.Web.AspNetCore
+2020-01-15 09:57:30.3295 Info Adding target FileTarget(Name=allfile)
+2020-01-15 09:57:30.4194 Info Adding target FileTarget(Name=ownFile-web)
+2020-01-15 09:57:30.5011 Info Found 45 configuration items
+2020-01-15 09:57:35.7103 Info Configuring from an XML element in C:\Users\Administrator\source\repos\BabySwim\WeChat\bin\Debug\netcoreapp3.1\nlog.config...
+2020-01-15 09:57:35.7103 Info Message Template Auto Format enabled
+2020-01-15 09:57:35.7103 Info Loading assembly: NLog.Web.AspNetCore
+2020-01-15 09:57:35.7103 Info Adding target FileTarget(Name=allfile)
+2020-01-15 09:57:35.7103 Info Adding target FileTarget(Name=ownFile-web)
+2020-01-15 09:57:35.7103 Info Closing old configuration.
+2020-01-15 09:57:35.7335 Info Found 45 configuration items

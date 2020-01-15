@@ -17,7 +17,7 @@ namespace XF.Model
 		private int _studentid;
 		private int _selectiontype=0;
 		private int _signtype=0;
-        private string _evaluate;
+        private string _evaluation;
 		private string _description;
 		private DateTime? _createdate;
 		private string _createuser;
@@ -43,6 +43,13 @@ namespace XF.Model
         private int _sectionno;
         private int _lessonno;
         private DateTime? _coursedate;
+        private string openId;
+
+        public string OpenId
+        {
+            get { return openId; }
+            set { openId = value; }
+        }
 
         public DateTime? CourseDate
         {
@@ -198,10 +205,10 @@ namespace XF.Model
         /// <summary>
         /// 
         /// </summary>
-        public string Evaluate
+        public string Evaluation
         {
-            get { return _evaluate; }
-            set { _evaluate = value; }
+            get { return _evaluation; }
+            set { _evaluation = value; }
         }
 		/// <summary>
 		/// 

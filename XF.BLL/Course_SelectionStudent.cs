@@ -80,10 +80,6 @@ namespace XF.BLL
 		public XF.Model.Course_SelectionStudent GetModel(int SelectionStudentID)
 		{
 			XF.Model.Course_SelectionStudent model = dal.GetModel(SelectionStudentID);
-            if (model != null)
-            {
-                model.Evaluate = GetEvaluate(model.SelectionStudentID);
-            }
             return model;
 		}
 
@@ -127,7 +123,6 @@ namespace XF.BLL
 					model = dal.DataRowToModel(dt.Rows[n]);
 					if (model != null)
 					{
-                        model.Evaluate = GetEvaluate(model.SelectionStudentID);
 						modelList.Add(model);
 					}
 				}
@@ -299,10 +294,6 @@ namespace XF.BLL
         public XF.Model.Course_SelectionStudent GetDetailModel(int SelectionStudentID)
         {
             XF.Model.Course_SelectionStudent model = dal.GetDetailModel(SelectionStudentID);
-            if (model != null)
-            {
-                model.Evaluate = GetEvaluate(model.SelectionStudentID);
-            }
             return model;
         }
 
@@ -312,39 +303,7 @@ namespace XF.BLL
         public XF.Model.Course_SelectionStudent GetDetailModel(DateTime CourseDate, int StoreID, int ClassRoomID, int LessonNO,int StudentID)
         {
             XF.Model.Course_SelectionStudent model = dal.GetDetailModel(CourseDate, StoreID, ClassRoomID, LessonNO,StudentID);
-            if (model != null)
-            {
-                model.Evaluate = GetEvaluate(model.SelectionStudentID);
-            }
             return model;
-        }
-
-        /// <summary>
-        /// 获取评价内容
-        /// </summary>
-        /// <param name="selectionStudentID"></param>
-        /// <returns></returns>
-        public string GetEvaluate(int selectionStudentID)
-        {
-            string fileName = ConfigSetting.EvaluateFilePath + selectionStudentID.ToString() + ".txt";
-            if (File.Exists(fileName))
-            {
-                try
-                {
-                    StreamReader sr = new StreamReader(fileName, System.Text.Encoding.Default);
-                    string evaluate = sr.ReadToEnd();
-                    sr.Dispose();
-                    return evaluate;
-                }
-                catch
-                {
-                    return string.Empty;
-                }
-            }
-            else
-            {
-                return string.Empty;
-            }
         }
 
         public List<XF.Model.Course_SelectionStudent> GetDetailModelList(DateTime dtStart, DateTime dtEnd, int teacherID, int courseID)

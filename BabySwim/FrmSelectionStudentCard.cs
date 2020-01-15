@@ -55,7 +55,7 @@ namespace BabySwim
             {
                 model.SignType = 0;
             }
-            model.Evaluate = rtcEvaluate.ContentText;
+            model.Evaluation = rtcEvaluate.ContentText;
             model.Evaluates.Clear();
             model.Evaluates.AddRange(new List<XF.Model.Course_Evaluate>
                         {
@@ -138,7 +138,7 @@ namespace BabySwim
                         rdoNormal.Checked = true;
                         break;
                 }
-                rtcEvaluate.ContentText = model.Evaluate;
+                rtcEvaluate.ContentText = model.Evaluation;
                 if (model.Evaluates.Count == 0)
                 {
                     nudDiscipline.Value = 10;

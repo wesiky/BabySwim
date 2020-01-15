@@ -98,32 +98,32 @@ namespace NewsWeb.CustomerMessageHandler
                 .Default(async () =>
                 {
                     var result = new StringBuilder();
-                    result.AppendFormat("您刚才发送了文字信息：{0}\r\n\r\n", requestMessage.Content);
+                    //result.AppendFormat("您刚才发送了文字信息：{0}\r\n\r\n", requestMessage.Content);
 
-                    var currentMessageContext = await base.GetCurrentMessageContext();
-                    if (currentMessageContext.RequestMessages.Count > 1)
-                    {
-                        result.AppendFormat("您刚才还发送了如下消息（{0}/{1}）：\r\n", currentMessageContext.RequestMessages.Count,
-                            currentMessageContext.StorageData);
-                        for (int i = currentMessageContext.RequestMessages.Count - 2; i >= 0; i--)
-                        {
-                            var historyMessage = currentMessageContext.RequestMessages[i];
-                            result.AppendFormat("{0} 【{1}】{2}\r\n",
-                                historyMessage.CreateTime.ToString("HH:mm:ss"),
-                                historyMessage.MsgType.ToString(),
-                                (historyMessage is RequestMessageText)
-                                    ? (historyMessage as RequestMessageText).Content
-                                    : "[非文字类型]"
-                                );
-                        }
-                        result.AppendLine("\r\n");
-                    }
+                    //var currentMessageContext = await base.GetCurrentMessageContext();
+                    //if (currentMessageContext.RequestMessages.Count > 1)
+                    //{
+                    //    result.AppendFormat("您刚才还发送了如下消息（{0}/{1}）：\r\n", currentMessageContext.RequestMessages.Count,
+                    //        currentMessageContext.StorageData);
+                    //    for (int i = currentMessageContext.RequestMessages.Count - 2; i >= 0; i--)
+                    //    {
+                    //        var historyMessage = currentMessageContext.RequestMessages[i];
+                    //        result.AppendFormat("{0} 【{1}】{2}\r\n",
+                    //            historyMessage.CreateTime.ToString("HH:mm:ss"),
+                    //            historyMessage.MsgType.ToString(),
+                    //            (historyMessage is RequestMessageText)
+                    //                ? (historyMessage as RequestMessageText).Content
+                    //                : "[非文字类型]"
+                    //            );
+                    //    }
+                    //    result.AppendLine("\r\n");
+                    //}
 
-                    result.AppendFormat("如果您在{0}分钟内连续发送消息，记录将被自动保留（当前设置：最多记录{1}条）。过期后记录将会自动清除。\r\n",
-                        GlobalMessageContext.ExpireMinutes, GlobalMessageContext.MaxRecordCount);
-                    result.AppendLine("\r\n");
-                    result.AppendLine(
-                        "您还可以发送【位置】【图片】【语音】【视频】等类型的信息（注意是这几种类型，不是这几个文字），查看不同格式的回复。\r\nSDK官方地址：https://sdk.weixin.senparc.com");
+                    //result.AppendFormat("如果您在{0}分钟内连续发送消息，记录将被自动保留（当前设置：最多记录{1}条）。过期后记录将会自动清除。\r\n",
+                    //    GlobalMessageContext.ExpireMinutes, GlobalMessageContext.MaxRecordCount);
+                    //result.AppendLine("\r\n");
+                    //result.AppendLine(
+                    //    "您还可以发送【位置】【图片】【语音】【视频】等类型的信息（注意是这几种类型，不是这几个文字），查看不同格式的回复。\r\nSDK官方地址：https://sdk.weixin.senparc.com");
 
                     defaultResponseMessage.Content = result.ToString();
 
@@ -246,199 +246,199 @@ Url:{2}", requestMessage.Title, requestMessage.Description, requestMessage.Url);
                         strongResponseMessage.Content = "您点击了子菜单按钮。";
                     }
                     break;
-                case "SubClickRoot_News":
-                    {
-                        var strongResponseMessage = CreateResponseMessage<ResponseMessageNews>();
-                        reponseMessage = strongResponseMessage;
-                        strongResponseMessage.Articles.Add(new Article()
-                        {
-                            Title = "您点击了子菜单图文按钮",
-                            Description = "您点击了子菜单图文按钮，这是一条图文信息。这个区域是Description内容\r\n可以使用\\r\\n进行换行。",
-                            PicUrl = "https://sdk.weixin.senparc.com/Images/qrcode.jpg",
-                            Url = "https://sdk.weixin.senparc.com"
-                        });
+//                case "SubClickRoot_News":
+//                    {
+//                        var strongResponseMessage = CreateResponseMessage<ResponseMessageNews>();
+//                        reponseMessage = strongResponseMessage;
+//                        strongResponseMessage.Articles.Add(new Article()
+//                        {
+//                            Title = "您点击了子菜单图文按钮",
+//                            Description = "您点击了子菜单图文按钮，这是一条图文信息。这个区域是Description内容\r\n可以使用\\r\\n进行换行。",
+//                            PicUrl = "https://sdk.weixin.senparc.com/Images/qrcode.jpg",
+//                            Url = "https://sdk.weixin.senparc.com"
+//                        });
 
-                        //随机添加一条图文，或只输出一条图文信息
-                        if (SystemTime.Now.Second % 2 == 0)
-                        {
-                            strongResponseMessage.Articles.Add(new Article()
-                            {
-                                Title = "这是随机产生的第二条图文信息，用于测试多条图文的样式",
-                                Description = "这是随机产生的第二条图文信息，用于测试多条图文的样式",
-                                PicUrl = "https://sdk.weixin.senparc.com/Images/qrcode.jpg",
-                                Url = "https://sdk.weixin.senparc.com"
-                            });
-                        }
-                    }
-                    break;
-                case "SubClickRoot_Music":
-                    {
-                        //上传缩略图
+//                        //随机添加一条图文，或只输出一条图文信息
+//                        if (SystemTime.Now.Second % 2 == 0)
+//                        {
+//                            strongResponseMessage.Articles.Add(new Article()
+//                            {
+//                                Title = "这是随机产生的第二条图文信息，用于测试多条图文的样式",
+//                                Description = "这是随机产生的第二条图文信息，用于测试多条图文的样式",
+//                                PicUrl = "https://sdk.weixin.senparc.com/Images/qrcode.jpg",
+//                                Url = "https://sdk.weixin.senparc.com"
+//                            });
+//                        }
+//                    }
+//                    break;
+//                case "SubClickRoot_Music":
+//                    {
+//                        //上传缩略图
 
-#if NET45
-                        var filePath = "~/Images/Logo.thumb.jpg";
-#else   
-                        var filePath = "~/wwwroot/Images/Logo.thumb.jpg";
-#endif
+//#if NET45
+//                        var filePath = "~/Images/Logo.thumb.jpg";
+//#else   
+//                        var filePath = "~/wwwroot/Images/Logo.thumb.jpg";
+//#endif
 
-                        var uploadResult = MediaApi.UploadTemporaryMedia(appId, UploadMediaFileType.thumb,
-                                                                    ServerUtility.ContentRootMapPath(filePath));
-                        //PS：缩略图官方没有特别提示文件大小限制，实际测试哪怕114K也会返回文件过大的错误，因此尽量控制在小一点（当前图片39K）
+//                        var uploadResult = MediaApi.UploadTemporaryMedia(appId, UploadMediaFileType.thumb,
+//                                                                    ServerUtility.ContentRootMapPath(filePath));
+//                        //PS：缩略图官方没有特别提示文件大小限制，实际测试哪怕114K也会返回文件过大的错误，因此尽量控制在小一点（当前图片39K）
 
-                        //设置音乐信息
-                        var strongResponseMessage = CreateResponseMessage<ResponseMessageMusic>();
-                        reponseMessage = strongResponseMessage;
-                        strongResponseMessage.Music.Title = "天籁之音";
-                        strongResponseMessage.Music.Description = "真的是天籁之音";
-                        strongResponseMessage.Music.MusicUrl = "https://sdk.weixin.senparc.com/Content/music1.mp3";
-                        strongResponseMessage.Music.HQMusicUrl = "https://sdk.weixin.senparc.com/Content/music1.mp3";
-                        strongResponseMessage.Music.ThumbMediaId = uploadResult.thumb_media_id;
-                    }
-                    break;
-                case "SubClickRoot_Image":
-                    {
-                        //上传图片
-#if NET45
-                        var filePath = "~/Images/Logo.jpg";
-#else
-                        var filePath = "~/wwwroot/Images/Logo.jpg";
-#endif
+//                        //设置音乐信息
+//                        var strongResponseMessage = CreateResponseMessage<ResponseMessageMusic>();
+//                        reponseMessage = strongResponseMessage;
+//                        strongResponseMessage.Music.Title = "天籁之音";
+//                        strongResponseMessage.Music.Description = "真的是天籁之音";
+//                        strongResponseMessage.Music.MusicUrl = "https://sdk.weixin.senparc.com/Content/music1.mp3";
+//                        strongResponseMessage.Music.HQMusicUrl = "https://sdk.weixin.senparc.com/Content/music1.mp3";
+//                        strongResponseMessage.Music.ThumbMediaId = uploadResult.thumb_media_id;
+//                    }
+//                    break;
+//                case "SubClickRoot_Image":
+//                    {
+//                        //上传图片
+//#if NET45
+//                        var filePath = "~/Images/Logo.jpg";
+//#else
+//                        var filePath = "~/wwwroot/Images/Logo.jpg";
+//#endif
 
-                        var uploadResult = MediaApi.UploadTemporaryMedia(appId, UploadMediaFileType.image,
-                                                                     ServerUtility.ContentRootMapPath(filePath));
-                        //设置图片信息
-                        var strongResponseMessage = CreateResponseMessage<ResponseMessageImage>();
-                        reponseMessage = strongResponseMessage;
-                        strongResponseMessage.Image.MediaId = uploadResult.media_id;
-                    }
-                    break;
-                case "SendMenu"://菜单消息
-                    {
-                        //注意：
-                        //1、此接口可以在任意地方调用（包括后台线程），此处演示为通过
-                        //2、一下"s:"前缀只是 Senparc.Weixin 的内部约定，可以使用 OnTextRequest事件中的 requestHandler.SelectMenuKeyword() 方法自动匹配到后缀（如101）
+//                        var uploadResult = MediaApi.UploadTemporaryMedia(appId, UploadMediaFileType.image,
+//                                                                     ServerUtility.ContentRootMapPath(filePath));
+//                        //设置图片信息
+//                        var strongResponseMessage = CreateResponseMessage<ResponseMessageImage>();
+//                        reponseMessage = strongResponseMessage;
+//                        strongResponseMessage.Image.MediaId = uploadResult.media_id;
+//                    }
+//                    break;
+//                case "SendMenu"://菜单消息
+//                    {
+//                        //注意：
+//                        //1、此接口可以在任意地方调用（包括后台线程），此处演示为通过
+//                        //2、一下"s:"前缀只是 Senparc.Weixin 的内部约定，可以使用 OnTextRequest事件中的 requestHandler.SelectMenuKeyword() 方法自动匹配到后缀（如101）
 
-                        var menuContentList = new List<SendMenuContent>(){
-                            new SendMenuContent("101","满意"),
-                            new SendMenuContent("102","一般"),
-                            new SendMenuContent("103","不满意")
-                        };
-                        //使用异步接口
-                        CustomApi.SendMenuAsync(appId, OpenId, "请对 Senparc.Weixin SDK 给出您的评价", menuContentList, "感谢您的参与！");
+//                        var menuContentList = new List<SendMenuContent>(){
+//                            new SendMenuContent("101","满意"),
+//                            new SendMenuContent("102","一般"),
+//                            new SendMenuContent("103","不满意")
+//                        };
+//                        //使用异步接口
+//                        CustomApi.SendMenuAsync(appId, OpenId, "请对 Senparc.Weixin SDK 给出您的评价", menuContentList, "感谢您的参与！");
 
-                        reponseMessage = new ResponseMessageNoResponse();//不返回任何消息
-                    }
-                    break;
-                case "SubClickRoot_Agent"://代理消息
-                    {
-                        //获取返回的XML
-                        var dt1 = SystemTime.Now;
-                        reponseMessage = MessageAgent.RequestResponseMessage(this, agentUrl, agentToken, RequestDocument.ToString());
-                        //上面的方法也可以使用扩展方法：this.RequestResponseMessage(this,agentUrl, agentToken, RequestDocument.ToString());
+//                        reponseMessage = new ResponseMessageNoResponse();//不返回任何消息
+//                    }
+//                    break;
+//                case "SubClickRoot_Agent"://代理消息
+//                    {
+//                        //获取返回的XML
+//                        var dt1 = SystemTime.Now;
+//                        reponseMessage = MessageAgent.RequestResponseMessage(this, agentUrl, agentToken, RequestDocument.ToString());
+//                        //上面的方法也可以使用扩展方法：this.RequestResponseMessage(this,agentUrl, agentToken, RequestDocument.ToString());
 
-                        var dt2 = SystemTime.Now;
+//                        var dt2 = SystemTime.Now;
 
-                        if (reponseMessage is ResponseMessageNews)
-                        {
-                            (reponseMessage as ResponseMessageNews)
-                                .Articles[0]
-                                .Description += string.Format("\r\n\r\n代理过程总耗时：{0}毫秒", (dt2 - dt1).Milliseconds);
-                        }
-                    }
-                    break;
-                case "Member"://托管代理会员信息
-                    {
-                        //原始方法为：MessageAgent.RequestXml(this,agentUrl, agentToken, RequestDocument.ToString());//获取返回的XML
-                        reponseMessage = this.RequestResponseMessage(agentUrl, agentToken, RequestDocument.ToString());
-                    }
-                    break;
-                case "OAuth"://OAuth授权测试
-                    {
-                        var strongResponseMessage = CreateResponseMessage<ResponseMessageNews>();
+//                        if (reponseMessage is ResponseMessageNews)
+//                        {
+//                            (reponseMessage as ResponseMessageNews)
+//                                .Articles[0]
+//                                .Description += string.Format("\r\n\r\n代理过程总耗时：{0}毫秒", (dt2 - dt1).Milliseconds);
+//                        }
+//                    }
+//                    break;
+//                case "Member"://托管代理会员信息
+//                    {
+//                        //原始方法为：MessageAgent.RequestXml(this,agentUrl, agentToken, RequestDocument.ToString());//获取返回的XML
+//                        reponseMessage = this.RequestResponseMessage(agentUrl, agentToken, RequestDocument.ToString());
+//                    }
+//                    break;
+//                case "OAuth"://OAuth授权测试
+//                    {
+//                        var strongResponseMessage = CreateResponseMessage<ResponseMessageNews>();
 
-                        strongResponseMessage.Articles.Add(new Article()
-                        {
-                            Title = "OAuth2.0测试",
-                            Description = "选择下面两种不同的方式进行测试，区别在于授权成功后，最后停留的页面。",
-                            //Url = "https://sdk.weixin.senparc.com/oauth2",
-                            //PicUrl = "https://sdk.weixin.senparc.com/Images/qrcode.jpg"
-                        });
+//                        strongResponseMessage.Articles.Add(new Article()
+//                        {
+//                            Title = "OAuth2.0测试",
+//                            Description = "选择下面两种不同的方式进行测试，区别在于授权成功后，最后停留的页面。",
+//                            //Url = "https://sdk.weixin.senparc.com/oauth2",
+//                            //PicUrl = "https://sdk.weixin.senparc.com/Images/qrcode.jpg"
+//                        });
 
-                        strongResponseMessage.Articles.Add(new Article()
-                        {
-                            Title = "OAuth2.0测试（不带returnUrl），测试环境可使用",
-                            Description = "OAuth2.0测试（不带returnUrl）",
-                            Url = "https://sdk.weixin.senparc.com/oauth2",
-                            PicUrl = "https://sdk.weixin.senparc.com/Images/qrcode.jpg"
-                        });
+//                        strongResponseMessage.Articles.Add(new Article()
+//                        {
+//                            Title = "OAuth2.0测试（不带returnUrl），测试环境可使用",
+//                            Description = "OAuth2.0测试（不带returnUrl）",
+//                            Url = "https://sdk.weixin.senparc.com/oauth2",
+//                            PicUrl = "https://sdk.weixin.senparc.com/Images/qrcode.jpg"
+//                        });
 
-                        var returnUrl = "/OAuth2/TestReturnUrl";
-                        strongResponseMessage.Articles.Add(new Article()
-                        {
-                            Title = "OAuth2.0测试（带returnUrl），生产环境强烈推荐使用",
-                            Description = "OAuth2.0测试（带returnUrl）",
-                            Url = "https://sdk.weixin.senparc.com/oauth2?returnUrl=" + returnUrl.UrlEncode(),
-                            PicUrl = "https://sdk.weixin.senparc.com/Images/qrcode.jpg"
-                        });
+//                        var returnUrl = "/OAuth2/TestReturnUrl";
+//                        strongResponseMessage.Articles.Add(new Article()
+//                        {
+//                            Title = "OAuth2.0测试（带returnUrl），生产环境强烈推荐使用",
+//                            Description = "OAuth2.0测试（带returnUrl）",
+//                            Url = "https://sdk.weixin.senparc.com/oauth2?returnUrl=" + returnUrl.UrlEncode(),
+//                            PicUrl = "https://sdk.weixin.senparc.com/Images/qrcode.jpg"
+//                        });
 
-                        reponseMessage = strongResponseMessage;
+//                        reponseMessage = strongResponseMessage;
 
-                    }
-                    break;
-                case "Description":
-                    {
-                        var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
-                        strongResponseMessage.Content = GetWelcomeInfo();
-                        reponseMessage = strongResponseMessage;
-                    }
-                    break;
-                case "SubClickRoot_PicPhotoOrAlbum":
-                    {
-                        var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
-                        reponseMessage = strongResponseMessage;
-                        strongResponseMessage.Content = "您点击了【微信拍照】按钮。系统将会弹出拍照或者相册发图。";
-                    }
-                    break;
-                case "SubClickRoot_ScancodePush":
-                    {
-                        var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
-                        reponseMessage = strongResponseMessage;
-                        strongResponseMessage.Content = "您点击了【微信扫码】按钮。";
-                    }
-                    break;
-                case "ConditionalMenu_Male":
-                    {
-                        var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
-                        reponseMessage = strongResponseMessage;
-                        strongResponseMessage.Content = "您点击了个性化菜单按钮，您的微信性别设置为：男。";
-                    }
-                    break;
-                case "ConditionalMenu_Femle":
-                    {
-                        var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
-                        reponseMessage = strongResponseMessage;
-                        strongResponseMessage.Content = "您点击了个性化菜单按钮，您的微信性别设置为：女。";
-                    }
-                    break;
-                case "GetNewMediaId"://获取新的MediaId
-                    {
-                        var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
-                        try
-                        {
-                            var result = MediaApi.UploadForeverMedia(appId, ServerUtility.ContentRootMapPath("~/Images/logo.jpg"));
-                            strongResponseMessage.Content = result.media_id;
-                        }
-                        catch (Exception e)
-                        {
-                            strongResponseMessage.Content = "发生错误：" + e.Message;
-                            WeixinTrace.SendCustomLog("调用UploadForeverMedia()接口发生异常", e.Message);
-                        }
-                    }
-                    break;
+//                    }
+//                    break;
+//                case "Description":
+//                    {
+//                        var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
+//                        strongResponseMessage.Content = GetWelcomeInfo();
+//                        reponseMessage = strongResponseMessage;
+//                    }
+//                    break;
+//                case "SubClickRoot_PicPhotoOrAlbum":
+//                    {
+//                        var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
+//                        reponseMessage = strongResponseMessage;
+//                        strongResponseMessage.Content = "您点击了【微信拍照】按钮。系统将会弹出拍照或者相册发图。";
+//                    }
+//                    break;
+//                case "SubClickRoot_ScancodePush":
+//                    {
+//                        var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
+//                        reponseMessage = strongResponseMessage;
+//                        strongResponseMessage.Content = "您点击了【微信扫码】按钮。";
+//                    }
+//                    break;
+//                case "ConditionalMenu_Male":
+//                    {
+//                        var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
+//                        reponseMessage = strongResponseMessage;
+//                        strongResponseMessage.Content = "您点击了个性化菜单按钮，您的微信性别设置为：男。";
+//                    }
+//                    break;
+//                case "ConditionalMenu_Femle":
+//                    {
+//                        var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
+//                        reponseMessage = strongResponseMessage;
+//                        strongResponseMessage.Content = "您点击了个性化菜单按钮，您的微信性别设置为：女。";
+//                    }
+//                    break;
+//                case "GetNewMediaId"://获取新的MediaId
+//                    {
+//                        var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
+//                        try
+//                        {
+//                            var result = MediaApi.UploadForeverMedia(appId, ServerUtility.ContentRootMapPath("~/Images/logo.jpg"));
+//                            strongResponseMessage.Content = result.media_id;
+//                        }
+//                        catch (Exception e)
+//                        {
+//                            strongResponseMessage.Content = "发生错误：" + e.Message;
+//                            WeixinTrace.SendCustomLog("调用UploadForeverMedia()接口发生异常", e.Message);
+//                        }
+//                    }
+//                    break;
                 default:
                     {
                         var strongResponseMessage = CreateResponseMessage<ResponseMessageText>();
-                        strongResponseMessage.Content = "您点击了按钮，EventKey：" + requestMessage.EventKey;
+                        strongResponseMessage.Content = string.Empty;
                         reponseMessage = strongResponseMessage;
                     }
                     break;

@@ -122,7 +122,7 @@ namespace BabySwim
                     if (rowIndexOld >= 0)
                     {
                         model = xfDataGridView1.Rows[rowIndexOld].Tag as XF.Model.Course_SelectionStudent;
-                        model.Evaluate = rtcEvaluate.ContentText;
+                        model.Evaluation = rtcEvaluate.ContentText;
                         model.Evaluates.Clear();
                         model.Evaluates.AddRange(new List<XF.Model.Course_Evaluate> 
                         {
@@ -162,7 +162,7 @@ namespace BabySwim
                     rowIndexOld = xfDataGridView1.CurrentCell.RowIndex;
                     model = xfDataGridView1.Rows[xfDataGridView1.CurrentCell.RowIndex].Tag as XF.Model.Course_SelectionStudent;
                     model.Evaluates = bllEvaluate.GetSelectionStudentEvaluates(model.SelectionStudentID);
-                    rtcEvaluate.ContentText = model.Evaluate;
+                    rtcEvaluate.ContentText = model.Evaluation;
                     if (model.Evaluates.Count == 0)
                     {
                         nudDiscipline.Value = 10;
@@ -205,7 +205,7 @@ namespace BabySwim
         {
             int rowIndex = xfDataGridView1.CurrentCell.RowIndex;
             XF.Model.Course_SelectionStudent model = xfDataGridView1.Rows[rowIndex].Tag as XF.Model.Course_SelectionStudent;
-            model.Evaluate = rtcEvaluate.ContentText;
+            model.Evaluation = rtcEvaluate.ContentText;
             model.Evaluates.Clear();
             model.Evaluates.AddRange(new List<XF.Model.Course_Evaluate>
                         {
@@ -247,58 +247,6 @@ namespace BabySwim
         {
             this.TextForeColor = ConfigSetting.TextForeColor;
             this.Icon = ConfigSetting.ProjectIcon;
-        }
-
-        private void tsBtnSendEvaluate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string url = ConfigSetting.ApiUrl + "/SendEvaluate";
-                string postDatas = "openId=oeihwwrTgDdxkk3bS_pjO-OVPAzk&selectionStudentId=3086";
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                request.Referer = "";
-                request.Accept = "Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
-                request.Headers["Accept-Language"] = "zh-CN,zh;q=0.";
-                request.Headers["Accept-Charset"] = "GBK,utf-8;q=0.7,*;q=0.3";
-                request.UserAgent = "User-Agent:Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.202 Safari/535.1";
-                request.KeepAlive = true;
-                //上面的http头看情况而定，但是下面俩必须加 
-                request.ContentType = "application/x-www-form-urlencoded";
-                Encoding encoding = Encoding.UTF8;//根据网站的编码自定义
-                request.Method = "post";  //--需要将get改为post才可行
-                string postDataStr;
-                if (postDatas != "")
-                {
-                    postDataStr = postDatas;//--需要封装,形式如“arg=arg1&arg2=arg2”
-                    byte[] postData = encoding.GetBytes(postDataStr);//postDataStr即为发送的数据，
-                    request.ContentLength = postData.Length;
-                    Stream requestStream = request.GetRequestStream();
-                    requestStream.Write(postData, 0, postData.Length);
-                }
-
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                Stream responseStream = response.GetResponseStream();
-
-
-                StreamReader streamReader = new StreamReader(responseStream, encoding);
-                string retString = streamReader.ReadToEnd();
-                BaseResult result = JsonConvert.DeserializeObject<BaseResult>(retString);//反序列化
-                streamReader.Close();
-                responseStream.Close();
-                if (result.ResultCode == 0)
-                {
-                    QQMessageBox.Show(this, result.ResultMsg, MessageText.MESSAGEBOX_CAPTION_TIP, QQMessageBoxIcon.Information, QQMessageBoxButtons.OK);
-                }
-                else
-                {
-                    QQMessageBox.Show(this, "推送失败，失败信息：" + result.ResultMsg, MessageText.MESSAGEBOX_CAPTION_ERROR, QQMessageBoxIcon.Error, QQMessageBoxButtons.OK);
-                }
-            }
-            catch (Exception ex)
-            {
-                QQMessageBox.Show(this, "推送异常,请联系管理员！异常信息：" + ex.Message, MessageText.MESSAGEBOX_CAPTION_ERROR, QQMessageBoxIcon.Error, QQMessageBoxButtons.OK);
-                return;
-            }
         }
     }
 }
